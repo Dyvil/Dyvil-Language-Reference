@@ -2,15 +2,15 @@
 
 * [Introduction](README.md)
 * Tools
-   * [The REPL](repl.md)
-   * [The Dyvil Compiler](dyvil-compiler.md)
+   * [The REPL](tools/repl.md)
+   * [The Dyvil Compiler](tools/dyvil-compiler.md)
 * [Language Reference](language-reference.md)
    * [Types](types.md)
-       * [Basic Types](basic-types.md)
-       * [Reference Types](reference-types.md)
-       * [Generic Types](generic-types.md)
-       * [Advanced Types](advanced-types.md)
-       * [Type Inference](type-inference.md)
+       * [Basic Types](types/basic-types.md)
+       * [Reference Types](types/reference-types.md)
+       * [Generic Types](types/generic-types.md)
+       * [Advanced Types](types/advanced-types.md)
+       * [Type Inference](types/type-inference.md)
    * [Classes](classes.md)
    * Functions and Methods
    * [Expressions](expressions.md)
