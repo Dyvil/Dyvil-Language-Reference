@@ -16,5 +16,5 @@
    * [Expressions](expressions.md)
 * [Grammar](grammar.md)
    * [Tokens](grammar/tokens.md)
-   * Top-Level Declarations
+   * [Top-Level Declarations](grammar/top-level-declarations.md)
 
