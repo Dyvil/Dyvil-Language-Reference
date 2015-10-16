@@ -6,4 +6,5 @@
    * [The Dyvil Compiler](dyvil-compiler.md)
 * [Language Reference](language-reference.md)
    * [Expressions](expressions.md)
+   * Types
 
