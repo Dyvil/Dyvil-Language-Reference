@@ -20,7 +20,7 @@
        * [Import, Using and Include Declarations](headers/import-using-and-include-declarations.md)
        * [Type Aliases](headers/type-aliases.md)
        * [Operators](headers/operators.md)
-           * Precedence
+           * [Precedence](headers/precedence.md)
            * Associativity
            * Standard Operators
            * [Custom Operators](headers/custom-operators.md)
