@@ -17,7 +17,7 @@ The following syntax is used to define a custom operator:
         - `left`
         - `right`
 
-Example:
+**Example**:
 
 ```swift
 prefix operator  &
