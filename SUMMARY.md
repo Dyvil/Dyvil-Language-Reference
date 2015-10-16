@@ -14,5 +14,5 @@
    * [Classes](classes.md)
    * Functions and Methods
    * [Expressions](expressions.md)
-* Grammar
+* [Grammar](grammar.md)
 
