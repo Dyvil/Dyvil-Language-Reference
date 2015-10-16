@@ -1,5 +1,5 @@
 # Summary
 
 * [Introduction](README.md)
-   * Files
+   * [Files](files.md)
 
