@@ -4,6 +4,7 @@
 * Tools
    * [The REPL](tools/repl.md)
    * [The Dyvil Compiler](tools/dyvil-compiler.md)
+   * [The Dyvil Property Format](tools/dyvil-property-format.md)
 * [Language Reference](language-reference.md)
    * [Types](types.md)
        * [Basic Types](types/basic-types.md)
