@@ -18,8 +18,10 @@
        * [Header Files](headers/header-files.md)
        * [Header Declarations](headers/header-declarations.md)
        * [Import, Using and Include Declarations](headers/import-using-and-include-declarations.md)
-       * [Custom Operators](headers/custom-operators.md)
        * [Type Aliases](headers/type-aliases.md)
+       * [Operators](headers/operators.md)
+          * Standard Operators
+          * Custom Operators
    * [Types](types.md)
        * [Basic Types](types/basic-types.md)
        * [Reference Types](types/reference-types.md)
