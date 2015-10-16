@@ -9,7 +9,7 @@
        * [Basic Types](basic-types.md)
        * [Reference Types](reference-types.md)
        * [Generic Types](generic-types.md)
-       * Advaned Types
+       * [Advaned Types](types/advanced-types.md)
        * [Type Inference](type-inference.md)
    * [Classes](classes.md)
    * Functions and Methods
