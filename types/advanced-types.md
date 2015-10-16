@@ -4,31 +4,31 @@
 
 A specialization of Generic Types are Tuple Types. They represent the parameterized class `TupleX[T1, ..., TX]`, where `X` is the number of elements in the Tuple. For example, a variable
 
-```scala
-var tuple = (1, "a")
+```java
+auto tuple = (1, "a")
 ```
 
-gets its type inferred to be `(int, String)`, which is syntactic sugar for `dyvil.tuple.Tuple2[Int, String]`. Tuple Types are [[Covariant|Variance#Covariant]], which means that `(int, String)` is a subtype of `(any, any)`, and an expression of the former type can be used where the latter type is required
+Gets its type inferred to be `(int, String)`, which is syntactic sugar for `dyvil.tuple.Tuple2[Int, String]`. Tuple Types are covariant, which means that `(int, String)` is a subtype of `(any, any)`, and an expression of the former type can be used where the latter type is required:
 
-```scala
+```java
 (any, any) tuple2 = tuple // ok
 ```
 
 ## Function Types
 
-Another specialization of Generic Types are Function Types, which represent syntactic sugar for parameterized `dyvil.function.FunctionX` types, where `X` is the number of parameters. For example, the function type `(String, int) => boolean` is syntactic sugar for `Function2[String, Int, Boolean]`. The last type argument (in this case `Boolean`) represents the return type of the function type.
+Another specialization of Generic Types are Function Types. They represent syntactic sugar for parameterized `dyvil.function.FunctionX` types, where `X` is the number of parameters. For example, the function type `(String, int) => boolean` is syntactic sugar for `Function2[String, Int, Boolean]`. The last type argument (in this case `Boolean`) represents the return type of the function type.
 
-As with Tuple Types and some Generic Types, Function Types are also fitted with [[variance annotations |Variance]], as shown in the declaration of `dyvil.function.Function2`.
+As with Tuple Types and some Generic Types, Function Types are also fitted with variance annotations, as shown in the declaration of `dyvil.function.Function2`:
 
 ```scala
 interface Function2[-P1, -P2, +R]
 ```
 
-However, the parameter types are not covariant, but [[contravariant|Variance#Contravariance]]. This inverts the subtyping relationship, and makes a `Function2[any, any, String]` as subtype of `Function2[String, String, any]`.
+However, the parameter types are contravariant instead of covariant. This inverts the subtyping relationship, and makes a `Function2[any, any, String]` a subtype of `Function2[String, String, any]`.
 
 ## Type Variable Types
 
-Type Variable Types are simply references to [[Type Variables]]. Their subtyping behavior is defined by the bounds of the type variable, which means for a type variable
+Type Variable Types are simply references to Type Variables. Their subtyping behavior is defined by the variance annotations of the type variable. This means for a type variable:
 
 ```
 T <: Number
@@ -36,16 +36,12 @@ T <: Number
 
 A type variable reference `T` only accepts types that are subtypes of `Number`. If the type variable is unbounded, type variable types accept any type.
 
-The most important use of Type Variable Types is type inference within methods. For example, a method
+The most important use of Type Variable Types is type inference within methods. For example, the method in the example adapts its return type depending on the inferred type of the type variable type:
 
 ```java
 static List[T] listOne(T element) = [ element ]
-```
 
-adapts its return type depending on the inferred type of the type variable type.
-
-```scala
-var list = listOne("a") // list has the type 'List[String]' because 'T' was inferred to 'String'
+auto list = listOne("a") // list has the type 'List[String]' because 'T' was inferred to 'String'
 ```
 
 ##Wildcard Types
