@@ -30,7 +30,8 @@
         * Inheritance
         * Generic Type Arguments
         * Fields
-        * Class Parameters
+        * Parameters
+        * Constructors
         * Methods
         * Properties
     * [Expressions](expressions.md)
@@ -71,6 +72,8 @@
         * Binding Patterns
         * Case Class Patterns
         * Tuple Patterns
+        * Pattern Bounds
+        * Exhaustive Patterns
 * Standard Library
 * [Grammar](grammar.md)
     * [Tokens](grammar/tokens.md)
