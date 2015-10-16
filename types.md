@@ -15,63 +15,6 @@ The Type system is way more advanced and extensive than in Java. Dyvil introduce
 
 All of these types are interconnectable - a `Tuple2[Int, Int]` is the same as `(int, int)` - and comparable - a `(String, String) => any` is a super type of `(any, any) => String`. In this tutorial, all of these types will be explained in more detail.
 
-
-```
-
-##`any`, or *the* base type
-
-Since there is no real super type of reference types and primitive types in the JVM, `any` is the semantic equivalent of `java.lang.Object`. That implies that boxing is required to correctly support primitive values. An variable such as
-
-```java
-any a = 10
-```
-
-gets converted to the slightly less performant
-
-```java
-Object a = dyvil.lang.Int.apply(10)
-```
-
-##`null`, the type of the `null` literal
-
-When the compiler tries to infer the type of an expression that evaluates to `null` during compile-time (usually `null` itself), the `null` type gets inferred. For example, a variable such as
-
-```scala
-var n = null
-```
-
-gets inferred to be
-
-```java
-null n = null
-```
-
-Since the only value that is compatible with the `null` type is `null` itself, it is not possible to assign any other value to the variable `n`.
-
-```java
-n = "a" // compilation error - incompatible
-```
-
-##Primitive Types
-
-The following primitive types are supported in Dyvil:
-
-| Name    | Bits  | Signed | Floating-Point |
-|---------|-------|--------|----------------|
-| void    | 0     | -      | -              |
-| boolean | 1 (8) | -      | -              |
-| byte    | 8     | yes    | no             |
-| short   | 16    | yes    | no             |
-| char    | 16    | no     | no             |
-| int     | 32    | yes    | no             |
-| long    | 64    | yes    | no             |
-| float   | 32    | yes    | yes            |
-| double  | 64    | yes    | yes            |
-
-Primitive Types share the same properties as primitive types in Java. However, there is one important difference: They can be used within generic type arguments, such as `List[int]`. This is only syntactic sugar though, as it will be converted to `List[Int]` at runtime, thus not eliminating the need for boxed values.
-
-Boxed types for the primitive types can be found in the `dyvil.lang` package. They share the same name, although the first character is capitalized (`Int`, `Boolean`, etc.). The wrapper classes provide boxing and unboxing methods (`apply` and `unapply`) as well as all operator implementations (`+`, `*`, `&`, `^`, ...)
-
 ##Reference Types
 
 Reference types are named references to existing non-generic types. They are, among generic types, the most commonly used types in Dyvil. As of Dyvil 1.0, it is not possible to qualify types names. Instead, the qualified package name has to be `import`ed before the type can be used, unless the type is implicitly imported through the [[Lang Header]].
