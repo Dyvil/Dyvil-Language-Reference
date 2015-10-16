@@ -19,4 +19,5 @@
    * [Top-Level Declarations](grammar/top-level-declarations.md)
    * [Types](grammar/types.md)
    * [Expressions](grammar/expressions.md)
+   * Statements
 
