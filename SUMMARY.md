@@ -20,4 +20,5 @@
    * [Types](grammar/types.md)
    * [Expressions](grammar/expressions.md)
    * [Statements](grammar/statements.md)
+   * Property Format
 
