@@ -1,3 +1,3 @@
 # REPL
 
-The first thing to do when 
+The first tool you can use to get started with Dyvil is the Dyvil REPL. 
