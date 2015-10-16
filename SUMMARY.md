@@ -21,7 +21,7 @@
        * [Type Aliases](headers/type-aliases.md)
        * [Operators](headers/operators.md)
            * [Precedence](headers/precedence.md)
-           * Associativity
+           * [Associativity](headers/associativity.md)
            * Standard Operators
            * [Custom Operators](headers/custom-operators.md)
    * [Types](types.md)
