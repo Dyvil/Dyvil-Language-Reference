@@ -5,7 +5,7 @@
    * [The REPL](repl.md)
    * [The Dyvil Compiler](dyvil-compiler.md)
 * [Language Reference](language-reference.md)
-   * Types
+   * [Types](types.md)
    * Classes
    * Functions and Methods
    * [Expressions](expressions.md)
