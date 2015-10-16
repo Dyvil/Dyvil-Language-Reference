@@ -20,5 +20,27 @@ This will print text similar to the one shown in the above example. As soon as t
 
 ## Supported Input
 
-The REPL mainly supports any Dyvil expressions and statements, which you can learn about in the respective pages of this documentation.
+The REPL mainly supports any Dyvil [expressions](expressions.md) and [statements](statements.md), which you can learn about in the respective pages of this documentation.
+
+Furthermore, it also supports these class-level and header constructs:
+
+- Variables
+
+```java
+> int i = 10
+static int i = 10
+> String s = "abc"
+static String s = abc
+> auto tuple = (1, "a", false)
+static (int, String, boolean) tuple = (1, a, false)
+```
+
+- Methods
+
+```java
+> int add(int i, int j) = i + j
+Defined Method 'static int add(int, int)'
+> int result = add(1, 2)
+static int result = 3
+```
 
