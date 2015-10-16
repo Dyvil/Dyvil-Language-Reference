@@ -6,10 +6,12 @@
    * [The Dyvil Compiler](dyvil-compiler.md)
 * [Language Reference](language-reference.md)
    * [Types](types.md)
-       * [Type Inference](type-inference.md)
        * [Basic Types](basic-types.md)
+       * Reference Types
+       * Generic Types
+       * Advaned Types
+       * [Type Inference](type-inference.md)
    * [Classes](classes.md)
    * Functions and Methods
    * [Expressions](expressions.md)
-   * Reference Types
 
