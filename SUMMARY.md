@@ -7,7 +7,7 @@
 * [Language Reference](language-reference.md)
    * [Types](types.md)
        * [Basic Types](basic-types.md)
-       * Reference Types
+       * [Reference Types](reference-types.md)
        * Generic Types
        * Advaned Types
        * [Type Inference](type-inference.md)
