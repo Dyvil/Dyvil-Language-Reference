@@ -15,7 +15,7 @@
        * Keywords
        * Other Symbols
    * [Headers](headers.md)
-       * Header Files
+       * [Header Files](headers/header-files.md)
        * Header Declarations
        * Import, Using and Include Declarations
        * Custom Operators
