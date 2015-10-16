@@ -19,7 +19,7 @@
        * [Header Declarations](headers/header-declarations.md)
        * [Import, Using and Include Declarations](headers/import-using-and-include-declarations.md)
        * Custom Operators
-       * Type Aliases
+       * [Type Aliases](headers/type-aliases.md)
    * [Types](types.md)
        * [Basic Types](types/basic-types.md)
        * [Reference Types](types/reference-types.md)
