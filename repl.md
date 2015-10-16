@@ -18,4 +18,7 @@ java -jar dyvil-0.6.0.jar
 
 This will print text similar to the one shown in the above example. As soon as the `>` sign appears, the REPL has finished doing it's initialization and you may start typing.
 
+## Supported Input
+
+The REPL mainly supports any Dyvil expressions and statements, which you can learn about in the respective pages of this documentation.
 
