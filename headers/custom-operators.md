@@ -42,25 +42,3 @@ infix operator +- {               none, precedence 120 }
 ```
 
 The order in which the properties are placed within the brackets does not matter.
-
-## Associativity
-
-The **Associativity** of an infix operator is either `none`, `left` or `right`, and is the first value inside the curly brackets for infix operator declarations. It describes how the parser should handle expressions the same operator is applied directly after itself, as shown below
-
-```swift
-infix operator +- { associativity none, precedence 120 }
-//                                ^^^^
-10 +- 20 +- 30
-```
-
-Depending on the `associativity`, the expression can be evaluated in different ways:
-
-| Associativity | Desugared Expression |
-|---------------|----------------------|
-| none          | *#error#*            |
-| left          | `10.+-(20).+-(30)`   |
-| right         | `10.+-(20.+-(30))`   |
-
-If the associativity of the `+-` operator is set to `none`, an expression like the above is not allowed, and parenthesis have to be placed explicitly. Otherwise, the compiler will cause a Syntax Error.
-
-It is not possible to assign an associativity to prefix or postfix operators.
