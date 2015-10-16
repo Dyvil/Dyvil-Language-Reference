@@ -16,7 +16,7 @@
        * Other Symbols
    * [Headers](headers.md)
        * [Header Files](headers/header-files.md)
-       * Header Declarations
+       * [Header Declarations](headers/header-declarations.md)
        * Import, Using and Include Declarations
        * Custom Operators
        * Type Aliases
