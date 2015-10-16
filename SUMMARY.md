@@ -4,5 +4,5 @@
 * Tools
    * [The REPL](repl.md)
    * [The Dyvil Compiler](dyvil-compiler.md)
-* Language Reference
+* [Language Reference](language-reference.md)
 
