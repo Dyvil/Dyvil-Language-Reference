@@ -5,5 +5,5 @@
    * [The REPL](repl.md)
    * [The Dyvil Compiler](dyvil-compiler.md)
 * [Language Reference](language-reference.md)
-   * Expressions
+   * [Expressions](expressions.md)
 
