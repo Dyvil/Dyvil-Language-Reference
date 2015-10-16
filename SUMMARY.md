@@ -17,7 +17,7 @@
    * [Headers](headers.md)
        * [Header Files](headers/header-files.md)
        * [Header Declarations](headers/header-declarations.md)
-       * Import, Using and Include Declarations
+       * [Import, Using and Include Declarations](headers/import-using-and-include-declarations.md)
        * Custom Operators
        * Type Aliases
    * [Types](types.md)
