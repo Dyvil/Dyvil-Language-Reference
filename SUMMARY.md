@@ -8,7 +8,7 @@
    * [Types](types.md)
        * [Basic Types](basic-types.md)
        * [Reference Types](reference-types.md)
-       * Generic Types
+       * [Generic Types](generic-types.md)
        * Advaned Types
        * [Type Inference](type-inference.md)
    * [Classes](classes.md)
