@@ -7,6 +7,7 @@
 * [Language Reference](language-reference.md)
    * [Types](types.md)
        * [Type Inference](type-inference.md)
+       * Basic Types
    * [Classes](classes.md)
    * Functions and Methods
    * [Expressions](expressions.md)
