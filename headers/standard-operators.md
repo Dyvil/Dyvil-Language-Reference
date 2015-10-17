@@ -8,9 +8,9 @@ The following operators are defined in the standard library:
 | - | prefix | default | - |
 | ! | prefix | default | - |
 | ~ | prefix | default | - |
-| $$||$$ | infix | 100 | left |
+| &#124;&#124; | infix | 100 | left |
 | && | infix | 200 | left |
-| $$|$$ | infix | 300 | left |
+| &#124; | infix | 300 | left |
 | ^ | infix | 400 | left |
 | & | infix | 500 | left |
 | == | infix | 600 | left |
