@@ -13,7 +13,7 @@
        * [Other Literals](syntax/other-literals.md)
        * [Identifiers](syntax/identifiers.md)
        * [Keywords](syntax/keywords.md)
-       * Other Symbols
+       * [Other Symbols](syntax/other-symbols.md)
    * [Headers](headers.md)
        * Package Declarations
        * [Header Files](headers/header-files.md)
