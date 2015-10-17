@@ -11,7 +11,7 @@
        * [Number Literals](syntax/number-literals.md)
        * [String Literals](syntax/string-literals.md)
        * [Other Literals](syntax/other-literals.md)
-       * Identifiers
+       * [Identifiers](syntax/identifiers.md)
        * Keywords
        * Other Symbols
    * [Headers](headers.md)
