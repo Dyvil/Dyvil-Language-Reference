@@ -10,7 +10,7 @@
        * [Comments](syntax/comments.md)
        * [Number Literals](syntax/number-literals.md)
        * [String Literals](syntax/string-literals.md)
-       * Other Literals
+       * [Other Literals](syntax/other-literals.md)
        * Identifiers
        * Keywords
        * Other Symbols
