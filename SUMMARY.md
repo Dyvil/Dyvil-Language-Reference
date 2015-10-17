@@ -6,7 +6,7 @@
    * [The Dyvil Compiler](tools/dyvil-compiler.md)
    * [The Dyvil Property Format](tools/dyvil-property-format.md)
 * [Language Reference](language-reference.md)
-   * Lexical Syntax
+   * [Lexical Syntax](syntax/lexical-syntax.md)
        * [Comments](syntax/comments.md)
        * [Number Literals](syntax/number-literals.md)
        * [String Literals](syntax/string-literals.md)
@@ -19,7 +19,6 @@
        * [Header Files](headers/header-files.md)
        * [Header Declarations](headers/header-declarations.md)
        * [Import, Using and Include Declarations](headers/import-using-and-include-declarations.md)
-       * [Type Aliases](headers/package-declaration.md)
    * [Operators](headers/operators.md)
        * [Precedence](headers/precedence.md)
        * [Associativity](headers/associativity.md)
