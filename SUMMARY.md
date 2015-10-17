@@ -12,7 +12,7 @@
        * [String Literals](syntax/string-literals.md)
        * [Other Literals](syntax/other-literals.md)
        * [Identifiers](syntax/identifiers.md)
-       * Keywords
+       * [Keywords](syntax/keywords.md)
        * Other Symbols
    * [Headers](headers.md)
        * Package Declarations
