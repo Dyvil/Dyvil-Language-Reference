@@ -8,7 +8,7 @@
 * [Language Reference](language-reference.md)
    * Lexical Syntax
        * [Comments](syntax/comments.md)
-       * Number Literals
+       * [Number Literals](syntax/number-literals.md)
        * String Literals
        * Other Literals
        * Identifiers
