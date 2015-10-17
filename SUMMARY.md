@@ -9,7 +9,7 @@
    * Lexical Syntax
        * [Comments](syntax/comments.md)
        * [Number Literals](syntax/number-literals.md)
-       * String Literals
+       * [String Literals](syntax/string-literals.md)
        * Other Literals
        * Identifiers
        * Keywords
