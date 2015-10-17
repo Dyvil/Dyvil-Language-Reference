@@ -15,7 +15,7 @@
        * [Keywords](syntax/keywords.md)
        * [Other Symbols](syntax/other-symbols.md)
    * [Headers](headers.md)
-       * Package Declarations
+       * [Package Declaration](headers/package-declaration.md)
        * [Header Files](headers/header-files.md)
        * [Header Declarations](headers/header-declarations.md)
        * [Import, Using and Include Declarations](headers/import-using-and-include-declarations.md)
