@@ -28,7 +28,7 @@ null n = null
 
 Note that it is not possible to assign anything other than `null` to such a variable.
 
-# Nil
+## Nil
 
 A new literal in Dyvil is the `nil` literal. It can be used for anything that has an empty state, such as arrays, `List`s or `Option`s.
 
@@ -42,7 +42,7 @@ Note that the value of these variables is in no case `null`, but rather the corr
 
 The type of the `nil` literal cannot be inferred, as its value depends on the context in which it is used.
 
-# Wildcard
+## Wildcard
 
 Another special Value Literal is the Wildcard Literal `...`. It can be used in places where you the default value of a type to be passed. The following table shows which value the Wildcard Literal will represent based on the type:
 
@@ -53,4 +53,4 @@ Another special Value Literal is the Wildcard Literal `...`. It can be used in p
 | `boolean`                              | `false` |
 | Any reference type                     | `null`  |
 
-Because the value of the Wildcard Literal depends on the context, its type cannot be inferred.
+Because the value of the Wildcard Literal depends on the context, its type cannot be inferred. Any attempt to do so will result in a compilation error.
