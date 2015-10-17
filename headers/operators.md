@@ -30,6 +30,6 @@ To be JVM-compatible, these names have to be replaced by the compiler according 
 | ~      | $tilde      |
 | ^      | $up         |
 | &      | $amp        |
-| $$|$$  | $bar        |
+| &#124;  | $bar        |
 
 For example, an operator `+*` would be replaced with `$plus$times`.
