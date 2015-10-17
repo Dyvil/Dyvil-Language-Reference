@@ -7,7 +7,7 @@
    * [The Dyvil Property Format](tools/dyvil-property-format.md)
 * [Language Reference](language-reference.md)
    * Lexical Syntax
-       * Comments
+       * [Comments](syntax/comments.md)
        * Number Literals
        * String Literals
        * Other Literals
