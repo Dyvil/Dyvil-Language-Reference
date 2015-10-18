@@ -15,27 +15,26 @@ public class MyClass
     
     public static void main([String] args)
     {
-        int i = 10          // ;
-        println i           // ;
-        i *= 2              // ;
-        println i           // ;
-        if (i >= 20)        // 1
-        {
-            println "\(i) is greater than 20!" // ;
-        }
+        int i = 10              // ;
+        println i               // ;
         
         auto my = new MyClass   // ;
         
-        println(                // 2
-                my,             // 3
-                my.             // 4
-                    value
+        println(                // 1
+                my,             // 2
+                my.             // 3
+                    value,
                 "value")
         
-        println;                // 5
+        println;                // 4
         
-        println "\(             // 6
-                    my)
+        println "\(             // 5
+                    my)         // ;
+        
+        if (i >= 20)            // 6
+        {
+            println "\(i) is greater than 20!" // ;
+        }
     }
 }
 ```
@@ -44,11 +43,23 @@ In the above example, semicolons are implicit in all cases where they are shown 
 
 Semicolons are __not__ inserted if
 
-- the first token in the next line is an opening curly bracket `{` (1)
 - the last token before the newline is
-    - an opening bracket `(`, `[` or `{` (2)
-    - a period `.` (3)
-    - a comma `,` (4)
-    - a semicolon `;` (5)
-    - a part of a String Interpolation literal (6)
+    - an opening bracket `(`, `[` or `{` (1).
+    - a period `.` (2).
+    - a comma `,` (3).
+    - a semicolon `;` (4).
+    - a keyword, excluding
+        - `true` and `false`.
+        - `break` and `continue`.
+        - `this` and `super`.
+    - the start or a part of a String Interpolation Literal (5).
+- the first token in the next line is
+    - a period `.`.
+    - a comma `,`.
+    - a semicolon `;`.
+    - a part or the end of a String Interpolation Literal.
+    - an opening curly bracket `{` (6).
+    - a closing bracket `)`, `]` or `}`.
+
+If there is one or more empty lines between two tokens, a semicolon will always be inserted between them.
     
