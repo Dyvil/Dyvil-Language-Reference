@@ -80,6 +80,10 @@
        * Pattern Bounds
        * Exhaustive Patterns
 * Standard Library
+* DyvilDoc
+   * Markdown Syntax
+   * HTML Integration
+   * Tags
 * [Grammar](grammar.md)
    * [Tokens](grammar/tokens.md)
    * [Top-Level Declarations](grammar/top-level-declarations.md)
