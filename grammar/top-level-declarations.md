@@ -23,10 +23,14 @@ importEnd : identifier ( '=>' identifier )?                  # Named Import
 importEnd : '{' '}' | '{' importPart { ',' importPart }? '}' # Multi-Import
 importEnd : '_'                                              # Package Import
 
-operatorDeclaration : 'prefix' 'operator' identifier
-operatorDeclaration : 'postfix' 'operator' identifier
-operatorDeclaration : 'infix' 'operator' identifier '{' int ( ',' infixAssociativity )? '}'
-infixAssociativity : 'none' | 'left' | 'right'
+operatorDeclaration : operatorType 'operator' identifier operatorProperties?
+operatorType : 'prefix' | 'postfix' | 'infix'
+
+operatorProperties : '{' operatorProperty { ',' operatorProperty }? '}'
+operatorProperty : 'precedence'? precedence
+operatorProperty : 'associativity'? associativity
+precedence : int
+associativity : 'none' | 'left' | 'right'
 
 typeAlias : 'type' identifier '=' type
 ```
