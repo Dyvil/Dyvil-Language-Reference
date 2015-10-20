@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* Tools
+* [Tools](tools.md)
    * [The REPL](tools/repl.md)
    * [The Dyvil Compiler](tools/dyvil-compiler.md)
    * [The Dyvil Property Format](tools/dyvil-property-format.md)
