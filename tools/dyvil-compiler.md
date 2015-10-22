@@ -35,7 +35,6 @@ Note that there are four types of arguments that can be passed:
   - `test` - runs the Main Type with the specified Main Arguments
 2. Debug Arguments
   - `--debug` - enables both `print` and `test`, and enables advanced logging output
-  - `--pstack` - recommended only for compiler developers, prints a list of tokens for each source file
 3. `@configfile.txt` - loads the Compiler Configuration file from the path after the `@` symbol (relative to the directory from which the compiler was launched)
 4. `option=value` - sets the value of the option named `option` to the `value`. Possible options are listed below.
 
