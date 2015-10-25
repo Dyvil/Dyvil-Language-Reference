@@ -96,3 +96,23 @@ println s // prints 'The value is: 10.'
 ```
 
 Note that this feature is only supported in Double-Quoted String Literals.
+
+## Verbatim Strings
+
+Verbatim Strings are a way to create Strings with many characters that would otherwise need to be escaped. This is especially handy for file paths in certain operating systems:
+
+```java
+String path = @"..\path\to\file"
+```
+
+Or for use as RegExp's, where you sometimes need to treat characters literally:
+
+```java
+String regex = @"Hello\.World"
+Pattern pattern = Pattern.compile(regex)
+
+pattern.matches("Hello.World") // => true
+pattern.matches("Hello|World") // => false
+```
+
+In the example, the pattern expects a literal dot `.` rather than any character.
