@@ -32,7 +32,7 @@
        * [Advanced Types](types/advanced-types.md)
        * [Type Inference](types/type-inference.md)
    * [Classes](classes.md)
-       * Inheritance
+       * [Inheritance](classes/inheritance.md)
        * Generic Type Arguments
        * Fields
        * Parameters
