@@ -37,7 +37,7 @@
        * [Fields](classes/fields.md)
        * Parameters
        * Constructors
-       * Methods
+       * [Methods](classes/methods.md)
        * Properties
    * [Expressions](expressions.md)
        * Basic Expressions
