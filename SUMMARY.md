@@ -38,7 +38,7 @@
        * Parameters
        * Constructors
        * [Methods](classes/methods.md)
-       * Properties
+       * [Properties](classes/properties.md)
    * [Expressions](expressions.md)
        * Basic Expressions
        * Operators
