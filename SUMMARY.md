@@ -33,12 +33,12 @@
        * [Type Inference](types/type-inference.md)
    * [Classes](classes.md)
        * [Inheritance](classes/inheritance.md)
-       * Generic Type Arguments
        * [Fields](classes/fields.md)
-       * Parameters
-       * Constructors
        * [Methods](classes/methods.md)
        * [Properties](classes/properties.md)
+       * Generic Type Arguments
+       * Parameters
+       * Constructors
    * [Expressions](expressions.md)
        * Basic Expressions
        * Operators
