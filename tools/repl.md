@@ -107,15 +107,16 @@ Defined class Person
 
 The REPL also supports internal REPL commands that are denoted by the `:[commandname] [arguments...]` syntax.
 
-Example:
-
-`:help` - Shows the available commands and their descriptions.
-
 The following commands are predefined:
 
-| Name | Arguments | Action | Example
+| Name(s) | Arguments | Action | Example
 | ---- | --------- | ------ | -------
-| `help`, `?` | - | Prints the available commands. | |
+| `help`, `?` | - | Prints the available commands and their descriptions. | |
 | `exit`, `shutdown` | exit code | Exits the current REPL instance | `exit 0` |
 | `version` | - | Prints information about the current REPL and Dyvil installation. | |
 | `dump` | directory | Sets the directory to which REPL Result class files (`.class`) are dumped. | `dump ./replbin` |
+| `debug` | - | Enables or disbles debug mode | |
+| `variables` | - | Prints all custom defined variables | |
+| `methods` | - | Prints all custom defined methods | |
+
+It is not possible to define or use custom commands.
