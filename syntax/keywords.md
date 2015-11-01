@@ -82,3 +82,4 @@ The following keywords are currently reserved but not in use.
 - macro
 - sealed
 - var
+- where
