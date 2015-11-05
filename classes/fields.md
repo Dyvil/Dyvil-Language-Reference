@@ -10,42 +10,80 @@ class Person
 ]
 ```
 
-## Modifiers
+You can declare fields with or without an initial value. If no initial value is declared, it will be the default value for the type of the field.
 
-Fields can be annotated with a variety of modifiers. Apart from standard visibility modifiers, the following field-specific modifiers can be used:
+| Type            | Initial Value |
+|-----------------|---------------|
+| `boolean`       | `false`       |
+| integer         | `0`           |
+| floating point  | `0.0`         |
+| reference types | `null`        |
 
-- `final`
+## Initialization
 
-  The final modifier makes a field immutable. This means it cannot be re-assigned after it has been set to an initial value.
-  
-  ```java
-  final String name
-  
-  public void setName(String newName)
-  {
-      this.name = newName // illegal
-  }
-  ```
-  
-- `lazy`
+When declaring a field with an initial value, that value has to be assigned to the field at some point in time. This point depends on if the field is `static` or not, and if it is initialized `lazy`ly or not.
 
-  The lazy modifier tells the compiler that a field should be initialized lazily, i.e. when it is used for the first time.
+Normal fields, i.e. non-`static` non-`lazy` fields are initialized as soon as an object of the class is constructed.
+
+```java
+public class Test
+{
+    String s = { println "Init"; "." }
+}
+
+new Test // prints 'Init'
+new Test // prints 'Init'
+```
+
+Static fields belong to the class itself, not individual members. This means they are initialized only once: when the class gets loaded.
+
+```java
+public class Test
+{
+    static String s = { println "Init"; "." }
+}
+
+new Test // prints 'Init'
+new Test // does nothing
+```
+
+Lazy fields are initialized not when an object or class is loaded, but when the field is used for the first time:
+
+```java
+public class Test
+{
+    lazy String s = { println "Init"; "." }
+}
+
+Test t = new Test // does nothing
+t.s // prints 'Init'
+t.s // does nothing
+new Test.s // prints 'Init'
+```
+
+Static lazy fields behave like their modifiers suggest. They are only initialized once, when they are used.
+
+```java
+public class Test
+{
+    static lazy String s = { println "Init"; "." }
+}
+
+Test.s // prints 'Init'
+Test.s // does nothing
+```
+
+## Final Fields
+
+The `final` modifier makes a field immutable. This means it cannot be re-assigned after it has been set to an initial value, otherwise the compiler will cause an error.
   
-  ```java
-  String myString = getMyString()
-  lazy String myLazyString = getMyString()
-  
-  static String getMyString()
-  {
-      println "getMyString()"
-      return "Hello World"
-  }
-  
-  {                         // prints 'getMyString()' during
-                            // initialization of 'myString'
-      println "Starting..." // prints 'Starting...'
-      println myString      // prints 'Hello World'
-      println myLazyString  // prints 'getMyString()' and then 'Hello World'
-      println myLazyString  // prints 'Hello World'
-  ]
-  ```
+```java
+final String name
+
+public void setName(String newName)
+{
+    this.name = newName // illegal
+}
+```
+
+All final fields have to be initialized either with an initial value or in all constructors individually. Otherwise, the compiler will tell you about the mistake via an error.
