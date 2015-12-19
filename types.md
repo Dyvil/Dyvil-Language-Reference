@@ -12,3 +12,4 @@ The Type system is way more advanced and extensive than in Java. Dyvil introduce
 8. Function Types - `(int, int) => int`
 9. Type Variable Types - `T`
 10. Wildcard Types - `_`, `_ <: Number`
+11. Reference Types - `int*`, `String*`, `any*`
