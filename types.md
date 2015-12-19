@@ -6,7 +6,7 @@ The Type system is way more advanced and extensive than in Java. Dyvil introduce
 2. The type of the `null` literal - `null`
 3. Dynamic Types - `dynamic`
 4. Primitive Types - `int`
-5. Reference Types - `String`
+5. Object Types - `String`, `Date`, `Object`
 6. Generic Types - `List[int]`, `List[Option[Date]]`
 7. Tuple Types - `(int, String)`
 8. Function Types - `(int, int) => int`
