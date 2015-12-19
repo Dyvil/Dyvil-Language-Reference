@@ -32,7 +32,9 @@ stringPointer.set "test"
 println string              // prints 'test'
 ```
 
-Using the `*` operator, you can create reference to the following kinds of data members:
+## The `*` Operator
+
+The `*` prefix operator (read 'Reference Operator') allows you to reference a data member. The following data members are allowed in this process:
 
 - Local Variables
 - Instance Fields
@@ -40,6 +42,33 @@ Using the `*` operator, you can create reference to the following kinds of data 
 - Class Parameters
 
 It is not possible to reference a method parameter or a property (instance or static). Doing so will result in a compiler error.
+
+Array elements (array + index) can also be referenced:
+
+```java
+[int] myArray = [ 1, 2, 3 ]
+int* myArray0 = *myArray[0]
+
+println myArray0.get    // prints '1'
+myArray0.set 10
+println myArray         // prints '[10, 2, 3]'
+```
+
+The expression on which the subscript is used does not need to be a direct field access. It is also possible (though not recommended) to use more complex expressions here:
+
+```java
+[int] getArray() = ...
+
+int* myArrayPointer = *getArray()[]
+
+int* myArrayPointer = *(new [int](3))[0]
+
+int* myArrayPointer = *{
+    [int] ints = [];
+    ints += 1;
+    ints
+}[0]
+```
 
 ## Reference Parameters
 
@@ -49,8 +78,10 @@ When writing the signature for an ordinary method, parameters can have the `var`
 static void inc(var int i, int n) = i += n
 
 int myInt = 0
+
 inc myInt
 println myInt // prints 1
+
 inc(myInt, 10)
 println myInt // prints 11
 
