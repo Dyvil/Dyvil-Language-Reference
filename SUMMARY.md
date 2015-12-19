@@ -27,7 +27,7 @@
        * [Custom Operators](headers/custom-operators.md)
    * [Types](types.md)
        * [Basic Types](types/basic-types.md)
-       * [Reference Types](types/reference-types.md)
+       * [Object Types](types/reference-types.md)
        * [Generic Types](types/generic-types.md)
        * [Advanced Types](types/advanced-types.md)
        * [Type Inference](types/type-inference.md)
