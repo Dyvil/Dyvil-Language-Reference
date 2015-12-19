@@ -31,7 +31,7 @@
        * [Generic Types](types/generic-types.md)
        * [Advanced Types](types/advanced-types.md)
        * [Type Inference](types/type-inference.md)
-       * Reference Types
+       * [Reference Types](types/reference-types.md)
    * [Classes](classes.md)
        * [Inheritance](classes/inheritance.md)
        * [Fields](classes/fields.md)
