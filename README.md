@@ -1,14 +1,14 @@
 The Dyvil Language Reference
-=======
+============================
 
-Dyvil is a multi-paradigm, general purpose programming language that is based on Java and the JVM. It extends the language with several new features including operator overloading, function types, tuples and many more.
+Dyvil is an object-oriented general-purpose programming language with functional and imperative elements. It has a C-descendant syntax and bases on Java and the JVM. Dyvil extends the language with new and modern language features.
 
-Dyvil is a C-descendant object-oriented programming language with functional and imperative elements. Some of the language's aims are:
+Some of the language's aims are:
 
 - to **enhance** Java with modern programming language elements
 - to **avoid** common boilerplate code
-- to **give** the programmer full **control** over the syntax and semantics of his or her code
+- to **give** programmers full **control** over the syntax and semantics of their code
 - to be fully **compatible** and **inter-operable** with Java and other JVM languages (e.g. Scala, Groovy, etc.)
 
-This documentation will guide you through all the new and old language features of the programming language.
+This documentation describes the syntax and semantics of new and old language elements. It includes both a beginner guide and a more detailed language reference.
 
