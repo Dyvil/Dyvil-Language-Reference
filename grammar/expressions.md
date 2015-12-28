@@ -63,8 +63,10 @@ lambdaParameters : parameters | identifier | '(' identifier { comma identifier }
 ## Patterns
 
 ```sh
-pattern : literal | '-' number | '_' | bindingPattern | tuplePattern | classPattern | typeCheckPattern
-bindingPattern : 'var' identifier
+pattern : orPattern { '&' orPattern }
+orPattern : primaryPattern { '|' primaryPattern }
+primaryPattern : literal | '-' number | '_' | bindingPattern | tuplePattern | classPattern | typeCheckPattern
+bindingPattern : 'var' identifier | identifier identifier
 typeCheckPattern : pattern 'as' type
 tuplePattern : '(' pattern { comma pattern }? ')'
 classPattern : identifier classPatternArguments?
