@@ -39,7 +39,7 @@
        * [Methods](classes/methods.md)
        * [Properties](classes/properties.md)
        * Generic Type Arguments
-       * Parameters
+       * [Parameters](classes/parameters.md)
        * [Constructors](classes/constructors.md)
    * [Expressions](expressions.md)
        * Basic Expressions
