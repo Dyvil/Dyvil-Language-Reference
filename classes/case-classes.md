@@ -64,4 +64,10 @@ Additionally, a Case Class generates a static `apply` method that can be used to
 Book book = Book("The Dyvil Language Reference", "Dyvil Team", 0xCAFEBABE)
 ```
 
-Marking a class a `case` class makes it usable in [Pattern Matching]
+Marking a class a `case` class makes it usable in [Pattern Matching](../expressions/patterns.md).
+
+```java
+book match {
+    case Book(String name, "Dyvil Team", _) => println name
+}
+```
