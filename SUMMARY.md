@@ -73,7 +73,7 @@
        * Try and Throw
        * Synchronized Blocks
        * Bytecode Expressions
-   * Patterns
+   * [Patterns](expressions/patterns.md)
        * Literal Patterns
        * Type Check Patterns
        * Binding Patterns
