@@ -72,7 +72,6 @@
        * Try and Throw
        * Synchronized Blocks
        * Bytecode Expressions
-       * The Swap Operator
    * Patterns
        * Literal Patterns
        * Type Check Patterns
