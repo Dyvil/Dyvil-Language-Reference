@@ -35,6 +35,7 @@
    * [Classes](classes.md)
        * [Inheritance](classes/inheritance.md)
        * [Traits and Interfaces](classes/traits.md)
+       * [Case Classes](classes/case-classes.md)
        * [Fields](classes/fields.md)
        * [Methods](classes/methods.md)
        * [Properties](classes/properties.md)
