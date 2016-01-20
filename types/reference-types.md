@@ -72,7 +72,7 @@ int* myArrayPointer = *{
 
 ## Reference Parameters
 
-When writing the signature for an ordinary method, parameters can have the `var` modifier. This allows you to pass one of the above data members, which will be converted to an implicit reference. It is not required to use the `*` operator at the use site:
+When writing the signature for an ordinary method, parameters can have the `var` modifier. This allows you to pass one of the above data members, which will be converted to an implicit reference. It is not required (and disallowed) to use the `*` operator at the use site:
 
 ```java
 static void inc(var int i, int n) = i += n
