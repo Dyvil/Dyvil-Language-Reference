@@ -3,12 +3,13 @@
 ```sh
 typeList : type { comma type }?
 
-type : namedType | genericType | nullType | arrayType | lambdaType | voidType | tupleType | wildcardType
+type : namedType | genericType | nullType | arrayType | lambdaType | voidType
+     | tupleType | wildcardType
 namedType : identifierList
 genericType : namedType '[' typeList? ']'
 
 voidType : '(' ')'
-arrayType : '[' mutability? type? ']' # The type is optional because [] evaluates to [any]
+arrayType : '[' mutability? type? ']'
 lambdaType : '=>' type
            | type '=>' type
            | '(' ')' '=>' type
