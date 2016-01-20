@@ -1,22 +1,31 @@
 # Types
 
 ```sh
-type : namedType | genericType | null | arrayType | lambdaType | voidType | tupleType | wildcardType
-namedType : identifier { '.' identifier }
-genericType : namedType '[' type { comma type }? ']'
-arrayType : '[' mutability? type? ']' # The type is optional because [] evaluates to [any]
-lambdaType : '(' ')' '=>' type | '=>' type
-lambdaType : type '=>' type | '(' type { comma type }? ')' '=>' type
+typeList : type { comma type }?
+
+type : namedType | genericType | nullType | arrayType | lambdaType | voidType | tupleType | wildcardType
+namedType : identifierList
+genericType : namedType '[' typeList? ']'
+
 voidType : '(' ')'
+arrayType : '[' mutability? type? ']' # The type is optional because [] evaluates to [any]
+lambdaType : '=>' type
+           | type '=>' type
+           | '(' ')' '=>' type
+           | '(' type { comma type }? ')' '=>' type
+
 tupleType : '(' type { comma type }? ')'
 wildcardType : '_' | '_' upperBound | '_' lowerBound
+
 optionalType : type '?'
+referenceType : type '*'
+
 mapType : '[' mutability? type ':' type ']'
 listType : '[' mutability? type '...' ']'
 
 mutability : 'var' | 'final'
 
-upperBounds : { '<:' type }
+upperBounds : { upperBound }
 upperBound : '<:' type
 lowerBound : '>:' type
 ```
