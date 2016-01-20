@@ -32,7 +32,7 @@ operatorProperty : 'associativity'? associativity
 precedence : int
 associativity : 'none' | 'left' | 'right'
 
-typeAlias : 'type' identifier '=' type
+typeAlias : 'type' typeVariables? identifier '=' type
 ```
 
 ## Classes
