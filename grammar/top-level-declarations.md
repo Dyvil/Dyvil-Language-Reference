@@ -3,8 +3,8 @@
 ## Dyvil Files
 
 ```sh
-unit : package? { headerPart }? headerDeclaration? { classDeclaration }?
-header : package? { headerPart }? headerDeclaration?
+unit : package? { headerPart semi }? headerDeclaration? { classDeclaration }?
+header : package? { headerPart semi }? headerDeclaration?
 
 package : 'package' identifier { '.' identifier }? semi
 ```
@@ -13,22 +13,23 @@ package : 'package' identifier { '.' identifier }? semi
 
 ```sh
 headerDeclaration : { accessModifier | annotation }? 'header' identifier
-headerPart : ( include | import | using | operatorDeclaration | typeAlias ) semi
+headerPart : include | import | using | operatorDeclaration | typeAlias
 
 include : 'include' identifier { '.' identifier }?
 import : 'import' importPart
 using : 'using' importPart
 importPart : { identifier '.' }? importEnd
-importEnd : identifier ( '=>' identifier )?                  # Named Import
-importEnd : '{' '}' | '{' importPart { ',' importPart }? '}' # Multi-Import
-importEnd : '_'                                              # Package Import
+importEnd : namedImport | multiImport | packageImport
+namedImport : identifier ( '=>' identifier )?
+multiImport : '{' '}' | '{' importPart { ',' importPart }? '}'
+packageImport : '_'
 
 operatorDeclaration : operatorType 'operator' identifier operatorProperties?
 operatorType : 'prefix' | 'postfix' | 'infix'
 
 operatorProperties : '{' operatorProperty { ',' operatorProperty }? '}'
 operatorProperty : 'precedence'? precedence
-operatorProperty : 'associativity'? associativity
+                 | 'associativity'? associativity
 precedence : int
 associativity : 'none' | 'left' | 'right'
 
@@ -39,17 +40,25 @@ typeAlias : 'type' typeVariables? identifier '=' type
 
 ```sh
 modifier : classModifier | methodModifier | fieldModifier
-accessModifier : 'public' | 'package' | 'protected' | 'private' | 'deprecated' | 'internal'
-classModifier : accessModifier | 'final' | 'static' | 'abstract' | 'case' | 'functional' | 'sealed'
-methodModifier : accessModifier | 'final' | 'static' | 'abstract' | 'prefix' | 'postfix' | 'infix' | 'inline' | 'synchronized' | 'override'
+accessModifier : 'public' | 'package' | 'protected' | 'private'
+               | 'deprecated' | 'internal'
+classModifier : accessModifier | 'final' | 'static' | 'abstract'
+              | 'case' | 'functional' | 'sealed'
+methodModifier : accessModifier | 'final' | 'static' | 'abstract'
+               | 'prefix' | 'postfix' | 'infix' | 'inline'
+               | 'synchronized' | 'override'
 fieldModifier : accessModifier | 'final' | 'const' | 'lazy'
 parameterModifier : 'lazy' | 'final' | 'var'
 variableModifier : 'lazy' | 'final'
-classKind : 'class' | 'enum' | 'object' | 'interface' | '@' 'interface' | 'extension'
+
 
 classDeclaration : { classModifier | annotation }? classKind identifier
-    typeVariables? parameters? extendsClause? implementsClause? ( classBody | semi )
+                   typeVariables? parameters?
+                   extendsClause? implementsClause?
+                   ( classBody | semi )
 
+classKind : 'class' | 'enum' | 'object' | 'extension'
+          | 'interface' | '@' 'interface' | 'trait'
 extendsClause : 'extends' type
 implementsClause :  'implements' type { comma type }?
 
@@ -61,19 +70,26 @@ typeVariable : variance? identifier upperBounds?
 variance : '+' | '-'
 
 parameters : '(' ')' | '(' parameter { comma parameter }? ')'
-parameter : { parameterModifier | annotation }? type identifier ellipsis? { '=' expression }
+parameter : { parameterModifier | annotation }? type ellipsis? identifier
+            { '=' expression }
 
 classBody : '{' { member semi }? '}'
 member : field | property | method | constructor
 
 field : { fieldModifier | annotation }? type identifier ( '=' expression )?
 
-property : { fieldModifier | annotation }? type identifier '{' ( getterClause setterClause? | setterClause getterClause? ) '}'
-getterClause : { fieldModifier }? 'get' ':' expression
-setterClause : { fieldModifier }? 'set' ':' expression
+property : { fieldModifier | annotation }? type identifier '{' propertyTags '}'
+propertyTags : propertyTag { semi propertyTag }?
+propertyTag : propertyGetter | propertySetter | propertyInit
+propertyGetter : { fieldModifier }? 'get' propertyStatement
+propertySetter : { fieldModifier }? 'set' ( '(' identifier ')' ) 
+                 propertyStatement
+propertyInit : 'init' propertyStatement
+propertyStatement : ':' expression | statementList
 
-method : { methodModifier | annotation }? type identifier typeVariables? parameters throwsClause? methodExpression?
-throwsClause : 'throws' type { comma type }?
+method : { methodModifier | annotation }? type identifier
+         typeVariables? parameters throwsClause? methodExpression?
+         throwsClause : 'throws' type { comma type }?
 methodExpression : '=' expression | statementList
 
 constructor : { methodModifier | annotation }? 'new' parameters throwsClause? methodExpression?
