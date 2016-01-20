@@ -15,13 +15,14 @@ You can declare fields with or without an initial value. If no initial value is 
 | Type            | Initial Value |
 |-----------------|---------------|
 | `boolean`       | `false`       |
-| integer         | `0`           |
-| floating point  | `0.0`         |
-| reference types | `null`        |
+| `char`          | `0` (Unicode value) |
+| Integer Numeric Types (`byte`, `short`, `int`, `long`) | `0` |
+| Floating Point Numeric Types (`float`, `double`) | `0.0` |
+| Object Types    | `null`        |
 
 ## Initialization
 
-When declaring a field with an initial value, that value has to be assigned to the field at some point in time. This point depends on if the field is `static` or not, and if it is initialized `lazy`ly or not.
+When declaring a field with an initial value, that value has to be assigned to the field at some point. This point depends on if the field is `static` or not, and if it is initialized `lazy`ly or not.
 
 Normal fields, i.e. non-`static` non-`lazy` fields are initialized as soon as an object of the class is constructed.
 
