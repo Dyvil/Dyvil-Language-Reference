@@ -11,7 +11,9 @@ octal : '0'..'7'
 hexadecimal : '0'..'9' | 'a'..'f' | 'A'..'F'
 
 alpha : 'a'..'z' | 'A'..'Z'
-symbol : '=' | '>' | '<' | '+' | '-' | '*' | '/' | '!' | '@' | '#' | '%' | '^' | '&' | '~' | '?' | '|' | '\' | ':' | '.'
+symbol : '=' | '>' | '<' | '+' | '-' | '*' | '/' | '!'
+       | '@' | '#' | '%' | '^' | '&' | '~' | '?' | '|'
+       | '\' | ':' | '.'
 
 nl : "newline character"
 semi : ';' | nl { nl }?
@@ -27,7 +29,7 @@ multiLineComment : '/*' { any ^ '*/' } '*/'
 docComment : '/**' { any ^ '*/' } '*/'
 
 identifier : '_'? identifier1 { '_' identifier1 }?
-identifier : '`' any '`'
+identifier : '`' (any ^ '`') '`'
 identifier1 : alpha { alpha | decimal }?  # Alphanumeric Identifier
 identifier1 : symbol { symbol }?          # Symbol Identifier
 
@@ -49,7 +51,7 @@ hexNum : '0x' hexadecimal { hexadecimal }?
 long : int 'l' | int 'L'
 
 floatingNum : decimalNum | decimalNum '.' decimalNum
-float : floatingNum 'f' | floatingNum 'F' )
+float : floatingNum 'f' | floatingNum 'F'
 double : floatingNum | floatingNum 'd' | floatingNum 'D'
 
 charLiteral : "'" { any ^ "'" }? "'"
