@@ -1,11 +1,13 @@
 # Expressions
 
 ```sh
-expression : literal | stringInterpolation | voidValue | thisExpression | superExpression
-expression : statement | access | assignment | constructor | castExpression | instanceOfExpression
-expression : classExpression | typeExpression
-expression : arrayExpression | tupleExpression
-expression : lambdaExpression | matchExpression | caseExpression
+expression : literal | stringInterpolation | voidValue
+           | thisExpression | superExpression
+           | statement | access | assignment | constructor
+           | castExpression | instanceOfExpression
+           | classExpression | typeExpression
+           | arrayExpression | tupleExpression
+           | lambdaExpression | matchExpression | caseExpression
 ```
 
 ## Simple Expressions
@@ -54,7 +56,8 @@ instanceOfExpression : expression 'is' type
 
 matchExpression : expression '.'? 'match' matchBody
 matchBody : caseExpression | '{' { caseExpression }? '}'
-caseExpression : 'case' pattern ( 'if' expression )? ( ':' | '=>' ) expression
+caseExpression : 'case' pattern ( 'if' expression )? caseExpressionStatement
+caseExpressionStatement : ( ':' | '=>' ) expression | statementList
 
 lambdaExpression : lambdaParameters? '=>' expression
 lambdaParameters : parameters | identifier | '(' identifier { comma identifier }? ')'
@@ -65,7 +68,8 @@ lambdaParameters : parameters | identifier | '(' identifier { comma identifier }
 ```sh
 pattern : orPattern { '&' orPattern }
 orPattern : primaryPattern { '|' primaryPattern }
-primaryPattern : literal | '-' number | '_' | bindingPattern | tuplePattern | classPattern | typeCheckPattern
+primaryPattern : literal | '-' number | '_' | bindingPattern
+               | tuplePattern | classPattern | typeCheckPattern
 bindingPattern : 'var' identifier | identifier identifier
 typeCheckPattern : pattern 'as' type
 tuplePattern : '(' pattern { comma pattern }? ')'
