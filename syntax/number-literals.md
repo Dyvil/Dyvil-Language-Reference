@@ -13,7 +13,7 @@ Integer literals are the most basic type of number literals. There are four type
 | `0o`   | 8    | 0 - 7 | `0o777`, `0o0123` |
 | `0x`   | 16   | 0 - F | `0x123`, `0xABCDEF`, `0xDEADBEEF` |
 
-- All sorts can have as many leading zeros as necessary.
+- All sorts can have as many leading zeros (after the prefix) as necessary.
 - Leading minus signs `-` are not part of the tokens. They are always handled specially by the parser.
 - Base-16 'digits' `A` - `F` can also be lowercase `a` - `f`.
 
@@ -34,9 +34,9 @@ Long Literals work much like integer literals. However, they have to be disambig
 
 Long Literals allow a range of values from $$-2^{64}$$ to $$2^{64}-1$$.
 
-Both Integer and Long Literals can have an arbitrary number of underscores `_` in between digits to increase readability.
+Both Integer and Long Literals may have an arbitrary number of underscores `_` in between digits to increase readability.
 
-```
+```java
 1_000_000
 0xFF_AA_BB_EE
 ```
@@ -61,7 +61,7 @@ It is also possible to add an exponent to floating point literals:
 0.4e10 -> 4000000000.0
 ```
 
-Valid Floating-Point Literals cannot start or end with a dot `.`. Thus, the following expressions are illegal:
+Valid Floating-Point Literals cannot start or end with a period symbol `.`. Thus, the following expressions are illegal in Dyvil:
 
 ```java
 .25
@@ -70,7 +70,7 @@ Valid Floating-Point Literals cannot start or end with a dot `.`. Thus, the foll
 1.
 ```
 
-Without a `F` or `D` postfix to explicitly declare it, the type of floating point literals will be inferred as `double`. However, it is recommended to always add these end characters for clarity.
+Without a `F` or `D` postfix to explicitly declare it, the type of floating point literals will be inferred as `double`. However, it is recommended to always add the postfix characters for clarity.
 
 ### Float Literals
 
