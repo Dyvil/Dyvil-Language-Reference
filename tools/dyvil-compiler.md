@@ -8,17 +8,17 @@ The following file types can be processed by the Dyvil Compiler:
 
 - `.dyv` or `.dyvil` - Dyvil Classes, compiled to the Java Class File format (`.class` files)
 - `.dyh` or `.dyvilh` - Dyvil Headers, compiled to Dyvil Object Files (`.dyo`)
-- `.jar` - Java Libraries, container classes for `.class` Files.
+- `.jar` - compiled Java or Dyvil Libraries, container files for `.class` files.
 
 ## Compiler Configuration
 
 In order to tell the compiler where to find source files and libraries, there are two options:
 
-### 1. Launch Arguments
+### Launch Arguments
 
 When running the compiler via the command line, it is possible to pass space-separated arguments to it, as shown in the below example:
 
-```bash
+```
 dyvilc compile source_dir=src output_dir=bin ...
 ```
 
