@@ -56,7 +56,7 @@ subcript_=
 
 Note that a single underscore is not a valid identifier, while a single dollar sign is.
 
-As per symbol substitution described in Operators, the examples above can be de-sugared to
+As per symbol substitution described in [Operators](headers/operators.md), the examples above can be de-sugared to
 
 ```java
 subscript_$eq
