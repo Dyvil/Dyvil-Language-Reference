@@ -8,14 +8,14 @@ The type of Boolean Literals is always inferred to `boolean`.
 
 ## Null
 
-The Null Literal `null` behaves exactly the same as in Java. It can be used in placed of any reference type, including arrays.
+The Null Literal `null` behaves exactly the same as in Java. It can be used in placed of any Object Type, including Array Types.
 
 ```java
 Object obj = null
 String string = null
 [Date] dates = null
 [int] array = null
-int i = null // error!
+int i = null // error - int is a primitive type
 ```
 
 The type of the Null Literal is inferred to the Null Type with the same notation.
@@ -26,7 +26,12 @@ auto n = null
 null n = null
 ```
 
-Note that it is not possible to assign anything other than `null` to such a variable.
+Note that it is not possible to assign anything other than `null` to such a variable. Thus, the compiler will reject the following code:
+
+```java
+auto n = null
+n = "abc" // error - cannot assign java.lang.String to null
+```
 
 ## Nil
 
@@ -44,13 +49,13 @@ The type of the `nil` literal cannot be inferred, as its value depends on the co
 
 ## Wildcard
 
-Another special Value Literal is the Wildcard Literal `...`. It can be used in places where you the default value of a type to be passed. The following table shows which value the Wildcard Literal will represent based on the type:
+Another special Value Literal is the Wildcard Literal `_`. It can be used in places where you want the default value of a type to be passed. The following table shows which value the Wildcard Literal will represent based on the type:
 
 | Type                                   | Value   |
 | -------------------------------------- | ------- |
 | `byte`, `short`, `char`, `int`, `long` | `0`     |
 | `float`, `double`                      | `0.0`   |
 | `boolean`                              | `false` |
-| Any reference type                     | `null`  |
+| Any Object Type                        | `null`  |
 
-Because the value of the Wildcard Literal depends on the context, its type cannot be inferred. Any attempt to do so will result in a compilation error.
+Because the value of the Wildcard Literal depends on the context, it's type cannot be inferred. Any attempt to do so will result in a compilation error.
