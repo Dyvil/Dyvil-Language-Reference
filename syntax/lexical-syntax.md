@@ -24,7 +24,7 @@ public class MyClass
                 my,             // 2
                 my.             // 3
                     value,
-                "value")
+                "value")        // ;
         
         println;                // 4
         
