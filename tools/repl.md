@@ -1,6 +1,6 @@
 # The REPL
 
-The first tool you can use the get started with Dyvil is it's official REPL (read-evaluate-print-loop). It allows you to enter any valid Dyvil expression and have it checked and evaluated by the program.
+The first tool you can use to get started with Dyvil is it's official REPL (**R**ead-**E**valuate-**P**rint-**L**oop). It allows you to enter any valid Dyvil expression and have it checked and evaluated by the program.
 
 ![The REPL](repl-example-1.png)
 
@@ -28,8 +28,8 @@ The REPL allows you to enter expressions and submit them by pressing the enter k
   
   ```java
   > class Person {   // newline
-        String name  // newline
-        int age      // newline
+        String name  // newline + tab
+        int age      // newline + tab
     }
   > [  // newline
     1, // newline
@@ -57,7 +57,7 @@ The REPL mainly supports any Dyvil [expressions](expressions.md) and [statements
 
 Furthermore, it also supports these class-level and header constructs:
 
-- Variables
+- [Fields](classes/fields.md)
 
 ```java
 > int i = 10
@@ -68,7 +68,7 @@ static String s = abc
 static (int, String, boolean) tuple = (1, a, false)
 ```
 
-- Methods
+- [Methods](classes/methods.md)
 
 ```java
 > int add(int i, int j) = i + j
@@ -77,17 +77,19 @@ Defined Method 'static int add(int, int)'
 static int result = 3
 ```
 
-- Classes
+- [Classes](classes.md), [Interfaces and Traits](classes/traits.md)
 
 ```java
 > class Person {
-    String name;
-    int age
+      String name;
+      int age
   }
-Defined class Person
+> interface ICallable[T] {
+      T call()
+  }
 ```
 
-- Import, Using and Include Declarations
+- [Import, Using and Include Declarations](headers/import-using-and-include-declarations.md)
 
 ```java
 > import java.util.Date
@@ -95,12 +97,20 @@ Defined class Person
 > include dyvil.Strings
 ```
 
-- Operator Definitions
+- [Operator Definitions](headers/operators.md)
 
-```java
+```swift
 > prefix operator ~~
 > infix operator +- { precedence 150, associativity left }
 > postfix operator !!
+```
+
+- [Type Aliases](headers/type-aliases.md)
+
+```scala
+> type StringList = List[String]
+> type ToIntMap[K] = Map[K, int]
+> type NestedMap[K1, K2, V] = Map[K1, Map[K2, V]]
 ```
 
 ## Commands
@@ -115,7 +125,7 @@ The following commands are predefined:
 | `exit`, `shutdown` | exit code | Exits the current REPL instance | `exit 0` |
 | `version` | - | Prints information about the current REPL and Dyvil installation. | |
 | `dump` | directory | Sets the directory to which REPL Result class files (`.class`) are dumped. | `dump ./replbin` |
-| `debug` | - | Enables or disbles debug mode | |
+| `debug` | - | Enables or disables debug mode | |
 | `variables` | - | Prints all custom defined variables | |
 | `methods` | - | Prints all custom defined methods | |
 
