@@ -75,14 +75,27 @@ The following table shows the escape sequences and the symbols that are actually
 To be able to use `'` and `"` in single-quoted or double-quoted String Literals respectively, they can be escaped as well. This will ensure that they are treated as part of the literal, not as the terminating symbol.
 
 ```java
-"\"this is possible\" - the compiler"
-'> \' and this as well\' <'
+println "\"this is possible\" - the compiler"
+println '> \' and this as well\' <'
+```
+
+The above code will print
+
+```
+"this is possible" - the compiler
+> 'and this as well' <
 ```
 
 To insert a backslash symbol, you can use `\\`.
 
 ```java
 String path = '..\\path\\to\\file\\'
+```
+
+The value of the `path` variable will now be
+
+```
+..\path\to\file
 ```
 
 ## String Interpolation
@@ -108,7 +121,7 @@ String path = @"..\path\to\file"
 Or for use as RegExp's, where you sometimes need to treat characters literally:
 
 ```java
-String regex = @"Hello\.World"
+String regex = @"Hello\.World" // "\." means "a literal dot symbol" in RegExp
 Pattern pattern = Pattern.compile(regex)
 
 pattern.matches("Hello.World") // => true
