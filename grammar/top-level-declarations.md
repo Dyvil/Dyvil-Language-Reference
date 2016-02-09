@@ -62,8 +62,7 @@ classKind : 'class' | 'enum' | 'object' | 'extension'
 extendsClause : 'extends' type
 implementsClause :  'implements' type { comma type }?
 
-annotation : '@' identifier annotationArguments?
-annotationArguments : arrayExpression | arguments
+annotation : '@' type arguments
 
 typeVariables : '[' ']' | '[' typeVariable { comma typeVariable }? ']'
 typeVariable : variance? identifier upperBounds?
@@ -74,7 +73,7 @@ parameter : { parameterModifier | annotation }? type ellipsis? identifier
             { '=' expression }
 
 classBody : '{' { member semi }? '}'
-member : field | property | method | constructor
+member : field | property | method | constructor | initializer
 
 field : { fieldModifier | annotation }? type identifier ( '=' expression )?
 
@@ -93,5 +92,7 @@ method : { methodModifier | annotation }? type identifier
 methodExpression : '=' expression | statementList
 
 constructor : { methodModifier | annotation }? 'new' parameters throwsClause? methodExpression?
+
+initializer : { methodModifier | annotation }? 'init' statementList
 
 ```
