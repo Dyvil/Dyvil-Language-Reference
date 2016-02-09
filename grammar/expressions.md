@@ -70,7 +70,7 @@ pattern : orPattern { '&' orPattern }
 orPattern : primaryPattern { '|' primaryPattern }
 primaryPattern : literal | '-' number | '_' | bindingPattern
                | tuplePattern | classPattern | typeCheckPattern
-bindingPattern : 'var' identifier | identifier identifier
+bindingPattern : 'var' identifier | type identifier
 typeCheckPattern : pattern 'as' type
 tuplePattern : '(' pattern { comma pattern }? ')'
 classPattern : identifier classPatternArguments?
