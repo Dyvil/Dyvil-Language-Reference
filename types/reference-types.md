@@ -1,40 +1,40 @@
 # Reference Types
 
-In Dyvil, you have the option to create objects that represent pointer to fields. You can accomplish this by using reference types, suffixed with a `*` sign:
+In Dyvil, you have the option to create objects that represent pointer to fields. You can accomplish this by using reference types, suffixed with a `&` sign:
 
 ```java
 int myInt = 0
-int* intPointer = *myInt
+int& intReference = &myInt
 
 String string = "abc"
-String* stringPointer = *string
+String& stringReference = *string
 ```
 
-As shown, a reference to a field can be created with the prefix `*` operator.
+As shown, a reference to a field can be created with the prefix `&` operator.
 
 Once you have the reference, you can either `get` or `set` it:
 
 ```java
-println intPointer.get      // prints 0
-println stringPointer.get   // prints 'abc'
+println intReference.get      // prints 0
+println stringReference.get   // prints 'abc'
 
-intPointer.set 10
+intReference.set 10
 println myInt               // prints 10
-println intPointer.get      // prints 10
+println intReference.get      // prints 10
 ```
 
 Any changes made to the field will be instantly applied to the pointer object, and vice-versa.
 
 ```java
 string = "def"
-println stringPointer.get   // prints 'def'
-stringPointer.set "test"
+println stringReference.get   // prints 'def'
+stringReference.set "test"
 println string              // prints 'test'
 ```
 
-## The `*` Operator
+## The `&` Operator
 
-The `*` prefix operator (read 'Reference Operator') allows you to reference a data member. The following data members are allowed in this process:
+The `&` prefix operator (read 'Reference Operator') allows you to reference a data member. The following data members are allowed in this process:
 
 - Local Variables
 - Instance Fields
@@ -47,10 +47,10 @@ Array elements (array + index) can also be referenced:
 
 ```java
 [int] myArray = [ 1, 2, 3 ]
-int* myArray0 = *myArray[0]
+int& myArrayReference = &myArray[0]
 
-println myArray0.get    // prints '1'
-myArray0.set 10
+println myArrayReference.get    // prints '1'
+myArrayReference.set 10
 println myArray         // prints '[10, 2, 3]'
 ```
 
@@ -59,11 +59,11 @@ The expression on which the subscript is used does not need to be a direct field
 ```java
 [int] getArray() = ...
 
-int* myArrayPointer = *getArray()[]
+int* myArrayReference = &getArray()[]    // method call
 
-int* myArrayPointer = *(new [int](3))[0]
+int* myArrayPointer = &(new [int](3))[0] // array constructor
 
-int* myArrayPointer = *{
+int* myArrayPointer = &{                 // code block
     [int] ints = [];
     ints += 1;
     ints
@@ -85,5 +85,5 @@ println myInt // prints 1
 inc(myInt, 10)
 println myInt // prints 11
 
-inc(*myInt) // disallowed
+inc(&myInt) // disallowed
 ```
