@@ -19,7 +19,7 @@ tupleType : '(' type { comma type }? ')'
 wildcardType : '_' | '_' upperBound | '_' lowerBound
 
 optionalType : type '?'
-referenceType : type '*'
+referenceType : type '&'
 
 mapType : '[' mutability? type ':' type ']'
 listType : '[' mutability? type '...' ']'
