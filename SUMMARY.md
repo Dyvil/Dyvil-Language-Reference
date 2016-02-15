@@ -42,7 +42,7 @@
        * Generic Type Arguments
        * [Parameters](classes/parameters.md)
        * [Constructors](classes/constructors.md)
-           * Initializer Blocks
+   * Initializer Blocks
    * [Expressions](expressions.md)
        * Basic Expressions
        * Operators
