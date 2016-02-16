@@ -73,6 +73,6 @@ primaryPattern : literal | '-' number | '_' | bindingPattern
 bindingPattern : 'var' identifier | type identifier
 typeCheckPattern : pattern 'as' type
 tuplePattern : '(' pattern { comma pattern }? ')'
-classPattern : identifier classPatternArguments?
+classPattern : type classPatternArguments?
 classPatternArguments : '(' ')' | '(' pattern { comma pattern }? ')'
 ```
