@@ -84,7 +84,7 @@
        * Exhaustive Patterns
 * Standard Library
 * DyvilDoc
-   * Markdown Syntax
+   * [Markdown Syntax](dyvildoc/markdown_syntax.md)
    * HTML Integration
    * Tags
 * [Grammar](grammar.md)
