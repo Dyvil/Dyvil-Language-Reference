@@ -8,7 +8,7 @@ expression : literal | stringInterpolation | voidValue
            | classExpression | typeExpression
            | arrayExpression | tupleExpression
            | lambdaExpression | matchExpression | caseExpression
-           | braceAccessExpression
+           | braceAccessExpression | colonExpression
 ```
 
 ## Simple Expressions
@@ -26,6 +26,7 @@ stringInterpolation : stringStart expression { stringPart expression }? stringEn
 
 arrayExpression : '[' ']' | '[' expression { comma expression }? ']'
 tupleExpression : '(' expression { comma expression }? ')'
+colonExpression : expression ':' expression
 
 constructor : 'new' type arguments? classBody?
 
