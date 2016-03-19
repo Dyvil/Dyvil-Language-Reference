@@ -8,6 +8,7 @@ expression : literal | stringInterpolation | voidValue
            | classExpression | typeExpression
            | arrayExpression | tupleExpression
            | lambdaExpression | matchExpression | caseExpression
+           | braceAccessExpression
 ```
 
 ## Simple Expressions
@@ -61,6 +62,8 @@ caseExpressionStatement : ( ':' | '=>' ) expression | statementList
 
 lambdaExpression : lambdaParameters? '=>' expression
 lambdaParameters : parameters | identifier | '(' identifier { comma identifier }? ')'
+
+braceAccessExpression : expression '.' statementList
 ```
 
 ## Patterns
