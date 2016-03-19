@@ -13,7 +13,7 @@ hexadecimal : '0'..'9' | 'a'..'f' | 'A'..'F'
 alpha : 'a'..'z' | 'A'..'Z'
 symbol : '=' | '>' | '<' | '+' | '-' | '*' | '/' | '!'
        | '@' | '#' | '%' | '^' | '&' | '~' | '?' | '|'
-       | '\' | ':' | '.'
+       | '\' | ':'
 
 nl : "newline character"
 semi : ';' | nl { nl }?
@@ -28,10 +28,12 @@ lineComment : '//' { any ^ nl } nl
 multiLineComment : '/*' { any ^ '*/' } '*/'
 docComment : '/**' { any ^ '*/' } '*/'
 
-identifier : '_'? identifier1 { '_' identifier1 }?
+identifier : { '.' }? identifierSeparator? identifierPart { identifierSeparator identifierPart }?
 identifier : '`' (any ^ '`') '`'
-identifier1 : alpha { alpha | decimal }?  # Alphanumeric Identifier
-identifier1 : symbol { symbol }?          # Symbol Identifier
+identifierSeparator : '_' | '$'
+identifierPart : alphaIdentifier | symbolIdentifier
+alphaIdentifier : alpha { alpha | decimal }?
+symbolIdentifier : symbol { symbol }?
 
 # Special Identifiers
 dot : '.'
