@@ -4,7 +4,7 @@
 typeList : type { comma type }?
 
 type : namedType | genericType | nullType | arrayType | lambdaType | voidType
-     | tupleType | wildcardType
+     | tupleType | wildcardType | optionType | implicitOptionType
 namedType : identifierList
 genericType : namedType '[' typeList? ']'
 
@@ -18,8 +18,9 @@ lambdaType : '=>' type
 tupleType : '(' type { comma type }? ')'
 wildcardType : '_' | '_' upperBound | '_' lowerBound
 
-optionalType : type '?'
-referenceType : type '&'
+optionType : type '?'
+implicitOptionType : type '!'
+referenceType : type '*'
 
 mapType : '[' mutability? type ':' type ']'
 listType : '[' mutability? type '...' ']'
