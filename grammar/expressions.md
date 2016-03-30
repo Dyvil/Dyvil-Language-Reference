@@ -1,14 +1,16 @@
 # Expressions
 
 ```sh
-expression : literal | stringInterpolation | voidValue
-           | thisExpression | superExpression | initExpression
-           | statement | access | assignment | constructor
-           | castExpression | instanceOfExpression
-           | classExpression | typeExpression
-           | arrayExpression | tupleExpression
-           | lambdaExpression | matchExpression
-           | braceAccessExpression | colonExpression
+expression : expressionNoClosure | applyCall
+expressionNoClosure : literal | stringInterpolation | voidValue
+                    | thisExpression | superExpression | initExpression | constructor
+                    | statement
+                    | methodCall | fieldAccess | applyCallNoClosure | subscriptCall
+                    | castExpression | instanceOfExpression
+                    | classExpression | typeExpression
+                    | arrayExpression | tupleExpression
+                    | lambdaExpression | matchExpression
+                    | braceAccessExpression | colonExpression | assignment
 ```
 
 ## Simple Expressions
@@ -30,17 +32,22 @@ colonExpression : expression ':' expression
 
 constructor : 'new' type arguments? classBody?
 
-access : (expression '.'?)? ( fieldAccess | methodCall | applyCall | subscriptCall )
-fieldAccess : identifier
-methodCall : identifier ( arguments? | expression )
-applyCall : arguments
+access : (expression '.'?)? ( fieldAccess | methodCall )
+access : expression '.' 
+
+fieldAccess : (expression '.'?)? identifier
+methodCall : (expression '.'?)? identifier ( arguments | expression )
+           | expression '.' typeArguments identifier ( arguments | expression )
+applyCall : expression arguments | expression { expression }
+applyCallNoClosure : expression arguments | expression { expression }? expressionNoClosure
 subscriptCall : expression subscriptArguments
 
 arguments : '(' ')' | '(' argumentList ')'
 subscriptArguments : '[' ']' | '[' argumentList ']'
-argumentList : '(' label? expression { comma label? expression } ')'
+argumentList : label? expression { comma label? expression }
+typeArguments : '[' type { comma type }? ']'
 
-assignment : access '=' expression
+assignment : expression '=' expression
 
 thisExpression : 'this' ( '[' type ']' )?
 superExpression : 'super' ( '[' type ']' )?
