@@ -14,6 +14,7 @@ lambdaType : '=>' type
            | type '=>' type
            | '(' ')' '=>' type
            | '(' type { comma type }? ')' '=>' type
+           | type . lambdaType
 
 tupleType : '(' type { comma type }? ')'
 wildcardType : '_' | '_' upperBound | '_' lowerBound
