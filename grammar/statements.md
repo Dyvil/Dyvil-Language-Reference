@@ -6,10 +6,9 @@ statement : statementList | ifStatement | whileStatement | doStatement
           | throwStatement | branchStatement
 
 statementList : '{' '}'
-              | '{' statementListElement { semi statementListPart } '}'
-statementListPart : label? ( expression | variable )
+              | '{' statementListPart { semi statementListPart } '}'
+statementListPart : label? ( expression | member )
 label : identifier ':'
-variable : ( variableModifier | annotation )? type identifier '=' expression
 
 ifStatement : 'if' '(' expression ')' expression
               ( semi? 'else' expression )?
