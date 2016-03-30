@@ -68,30 +68,36 @@ typeVariables : '[' ']' | '[' typeVariable { comma typeVariable }? ']'
 typeVariable : variance? identifier upperBounds?
 variance : '+' | '-'
 
+typeAscription : ':' type
+
 parameters : '(' ')' | '(' parameter { comma parameter }? ')'
-parameter : { parameterModifier | annotation }? type ellipsis? identifier
-            { '=' expression }
+parameter : { parameterModifier | annotation }? (type ellipsis?)? identifier typeAscription?
+            ( '=' expression )?
 
 classBody : '{' { member semi }? '}'
 member : field | property | method | constructor | initializer
 
-field : { fieldModifier | annotation }? type identifier ( '=' expression )?
+field : { fieldModifier | annotation }? ( type | 'var' ) identifier typeAscription? ( '=' expression )?
 
-property : { fieldModifier | annotation }? type identifier '{' propertyTags '}'
+property : { fieldModifier | annotation }? ( type | 'var' ) identifier typeAscription? '{' propertyTags '}'
 propertyTags : propertyTag { semi propertyTag }?
 propertyTag : propertyGetter | propertySetter | propertyInit
 propertyGetter : { fieldModifier }? 'get' propertyStatement
-propertySetter : { fieldModifier }? 'set' ( '(' identifier ')' ) 
+propertySetter : { fieldModifier }? 'set' ( '(' identifier ')' )?
                  propertyStatement
 propertyInit : 'init' propertyStatement
 propertyStatement : ':' expression | statementList
 
 method : { methodModifier | annotation }? type identifier
-         typeVariables? parameters throwsClause? methodExpression?
-         throwsClause : 'throws' type { comma type }?
+         typeVariables? parameters throwsClause? typeAscription? methodExpression?
+method : { methodModifier | annotation }? 'func' identifier
+         typeVariables? parameters? throwsClause? typeAscription? methodExpression?
+         // note: difference with 'func' is only that 'parameters' is optional
+
+throwsClause : 'throws' type { comma type }?
 methodExpression : '=' expression | statementList
 
-constructor : { methodModifier | annotation }? 'new' parameters throwsClause? methodExpression?
+constructor : { methodModifier | annotation }? 'init' parameters throwsClause? methodExpression?
 
 initializer : { methodModifier | annotation }? 'init' statementList
 
