@@ -2,12 +2,12 @@
 
 ```sh
 expression : literal | stringInterpolation | voidValue
-           | thisExpression | superExpression
+           | thisExpression | superExpression | initExpression
            | statement | access | assignment | constructor
            | castExpression | instanceOfExpression
            | classExpression | typeExpression
            | arrayExpression | tupleExpression
-           | lambdaExpression | matchExpression | caseExpression
+           | lambdaExpression | matchExpression
            | braceAccessExpression | colonExpression
 ```
 
@@ -36,33 +36,31 @@ methodCall : identifier ( arguments? | expression )
 applyCall : arguments
 subscriptCall : expression subscriptArguments
 
-arguments : emptyArguments | argumentList | namedArguments
-emptyArguments : '(' ')'
-argumentList : '(' expression { ',' expression } ')'
-namedArguments : '(' label expression { ',' label expression } ')'
-
-subscriptArguments : '[' ']' | subscriptArgumentList | namedSubscriptArguments
-subscriptArgumentList : '[' expression { ',' expression } ']'
-namedSubscriptArguments : '[' label expression { ',' label expression } ']'
+arguments : '(' ')' | '(' argumentList ')'
+subscriptArguments : '[' ']' | '[' argumentList ']'
+argumentList : '(' label? expression { comma label? expression } ')'
 
 assignment : access '=' expression
 
 thisExpression : 'this' ( '[' type ']' )?
 superExpression : 'super' ( '[' type ']' )?
 
+initExpression : ( 'this' '.' | 'super' '.' ) 'init' arguments
+
 classExpression : 'class' type
-typeExpression : 'type' type
+                | 'class' '(' type ')'
+
+typeExpression  : 'type' type
+                | 'type' '(' type ')'
 
 castExpression : expression 'as' type
 instanceOfExpression : expression 'is' type
 
 matchExpression : expression '.'? 'match' matchBody
 matchBody : caseExpression | '{' { caseExpression }? '}'
-caseExpression : 'case' pattern ( 'if' expression )? caseExpressionStatement
-caseExpressionStatement : ( ':' | '=>' ) expression | statementList
 
 lambdaExpression : lambdaParameters? '=>' expression
-lambdaParameters : parameters | identifier | '(' identifier { comma identifier }? ')'
+lambdaParameters : parameters | identifier
 
 braceAccessExpression : expression '.' statementList
 ```
