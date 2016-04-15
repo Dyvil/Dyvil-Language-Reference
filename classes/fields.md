@@ -88,3 +88,54 @@ public void setName(String newName)
 ```
 
 All final fields have to be initialized either with an initial value or in all constructors individually. Otherwise, the compiler will tell you about the mistake via an error.
+
+## Field Properties
+
+Fields in class contexts may define inline property getters and setters. They are automatically used when accessing or assigning to that field.
+
+```java
+class Foo
+{
+    var i = 0 { get; set }
+}
+```
+
+is equivalent to
+
+```
+class Foo
+{
+    var i = 0 // field
+
+    var i: int // property
+    {
+        get: this.i
+        set: this.i = newValue
+    }
+}
+```
+
+If the `get` or `set` keywords are used within the property body, the compiler generates default accessors as shown above. To allow as much flexibility as possible, this can be overriden with the usual property syntax.
+
+```java
+class Foo
+{
+    var i = 0
+    {
+        get
+        {
+            println "get"
+            return i
+        }
+        set
+        {
+            println "set \(newValue)"
+            i = newValue
+        }
+    }
+}
+
+var foo = new Foo
+println foo.i      // prints 'get', '0'
+foo.i = 2          // prints 'set 2'
+```
