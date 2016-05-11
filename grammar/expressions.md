@@ -35,11 +35,10 @@ constructor : 'new' type arguments? classBody?
 access : (expression '.'?)? ( fieldAccess | methodCall )
 access : expression '.' 
 
-fieldAccess : (expression '.'?)? identifier
-methodCall : (expression '.'?)? identifier ( arguments | expression )
-           | expression '.' typeArguments identifier ( arguments | expression )
+fieldAccess : (expression '.')? identifier
+methodCall : (expression '.')? identifier typeArguments? ( arguments | expression )
 applyCall : expression arguments | expression { expression }
-applyCallNoClosure : expression arguments | expression { expression }? expressionNoClosure
+applyCallNoClosure : expression arguments | expression { expressionNoClosure }
 subscriptCall : expression subscriptArguments
 
 arguments : '(' ')' | '(' argumentList ')'
@@ -63,10 +62,7 @@ typeExpression  : 'type' type
 castExpression : expression 'as' type
 instanceOfExpression : expression 'is' type
 
-matchExpression : expression '.'? 'match' matchBody
-matchBody : caseExpression | '{' { caseExpression }? '}'
-
-lambdaExpression : lambdaParameters? '=>' expression
+lambdaExpression : lambdaParameters? ('->' type)? '=>' expression
 lambdaParameters : parameters | identifier
 
 braceAccessExpression : expression '.' statementList
