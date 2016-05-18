@@ -9,10 +9,11 @@ The following syntax is used to define a custom operator:
     - `prefix`
     - `postfix`
 2. The keyword `operator`
-3. The name
-4. An optional list of additional comma-separated properties in curly brackets.
-    - `precedence` + integer literal
-    - `associativity`
+3. The symbol
+4. An optional second part symbol to define ternary operators
+5. An optional list of additional comma-separated properties within curly braces.
+    - `precedence` followed by an integer literal
+    - `associativity` followed by one of
         - `none`
         - `left`
         - `right`
