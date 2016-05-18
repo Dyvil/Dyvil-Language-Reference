@@ -16,14 +16,13 @@ Gets its type inferred to be `(int, String)`, which is syntactic sugar for `dyvi
 
 ## Function Types
 
-Another specialization of Generic Types are Function Types. They represent syntactic sugar for parameterized `dyvil.function.FunctionX` types, where `X` is the number of parameters. For example, the function type `(String, int) => boolean` is syntactic sugar for `Function2[String, Int, Boolean]`. The last type argument (in this case `Boolean`) represents the return type of the function type.
+Another specialization of Generic Types are Function Types. They represent syntactic sugar for parameterized `dyvil.function.FunctionX` types, where `X` is the number of parameters. For example, the function type `(String, int) -> boolean` is syntactic sugar for `Function2[String, Int, Boolean]`. The last type argument (in this case `Boolean`) represents the return type of the function type.
 
-As with Tuple Types and some Generic Types, Function Types are also fitted with variance annotations, as shown in the declaration of `dyvil.function.Function2`:
+As with Tuple Types and some Generic Types, Function Types are also fitted with variance annotations. This is shown in the declaration of `dyvil.function.Function2`:
 
 ```scala
 interface Function2[-P1, -P2, +R]
 ```
-
 However, the parameter types are contravariant instead of covariant. This inverts the subtyping relationship, and makes a `Function2[any, any, String]` a subtype of `Function2[String, String, any]`.
 
 ## Type Variable Types
