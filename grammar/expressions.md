@@ -48,16 +48,19 @@ typeArguments : '[' type { comma type }? ']'
 
 assignment : expression '=' expression
 
-thisExpression : 'this' ( '[' type ']' )?
-superExpression : 'super' ( '[' type ']' )?
+thisExpression : 'this' classSpecifier?
+superExpression : 'super' classSpecifier?
+classSpecifier : '<' type '>'
 
 initExpression : ( 'this' '.' | 'super' '.' ) 'init' arguments
 
 classExpression : 'class' type
                 | 'class' '(' type ')'
+                | 'class' '<' type '>'
 
 typeExpression  : 'type' type
                 | 'type' '(' type ')'
+                | 'type' '<' type '>'
 
 castExpression : expression 'as' type
 instanceOfExpression : expression 'is' type
