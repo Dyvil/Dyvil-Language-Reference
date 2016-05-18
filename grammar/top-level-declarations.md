@@ -24,8 +24,10 @@ namedImport : identifier ( '=>' identifier )?
 multiImport : '{' '}' | '{' importPart { ',' importPart }? '}'
 packageImport : '_'
 
-operatorDeclaration : operatorType 'operator' identifier operatorProperties?
+operatorDeclaration : operatorType 'operator' operatorSymbol operatorProperties?
+                    | 'infix' 'operator' operatorSymbol operatorSymbol operatorProperties? 
 operatorType : 'prefix' | 'postfix' | 'infix'
+operatorSymbol : identifier | '=' | ':'
 
 operatorProperties : '{' operatorProperty { ',' operatorProperty }? '}'
 operatorProperty : 'precedence'? precedence
