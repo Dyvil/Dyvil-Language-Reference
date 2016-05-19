@@ -1,13 +1,13 @@
 # Reference Types
 
-In Dyvil, you have the option to create objects that represent pointer to fields. You can accomplish this by using reference types, suffixed with a `&` sign:
+In Dyvil, you have the option to create objects that represent pointer to fields. You can accomplish this by using reference types, suffixed with a `*` sign:
 
 ```java
 int myInt = 0
-int& intReference = &myInt
+int* intReference = &myInt
 
 String string = "abc"
-String& stringReference = *string
+String* stringReference = *string
 ```
 
 As shown, a reference to a field can be created with the prefix `&` operator.
@@ -19,7 +19,7 @@ println intReference.get      // prints 0
 println stringReference.get   // prints 'abc'
 
 intReference.set 10
-println myInt               // prints 10
+println myInt                 // prints 10
 println intReference.get      // prints 10
 ```
 
@@ -29,19 +29,18 @@ Any changes made to the field will be instantly applied to the pointer object, a
 string = "def"
 println stringReference.get   // prints 'def'
 stringReference.set "test"
-println string              // prints 'test'
+println string                // prints 'test'
 ```
 
 ## The `&` Operator
 
-The `&` prefix operator (read 'Reference Operator') allows you to reference a data member. The following data members are allowed in this process:
+The `&` prefix operator (read 'Reference Operator') allows you to reference a data member. The following data members are allowed as the operand:
 
 - Local Variables
 - Instance Fields
 - Static Fields
 - Class Parameters
-
-It is not possible to reference a method parameter or a property (instance or static). Doing so will result in a compiler error.
+- Properties (pairs of getter and setter methods)
 
 Array elements (array + index) can also be referenced:
 
@@ -70,20 +69,23 @@ int* myArrayPointer = &{                 // code block
 }[0]
 ```
 
-## Reference Parameters
+## Implicit Reference Types
 
-When writing the signature for an ordinary method, parameters can have the `var` modifier. This allows you to pass one of the above data members, which will be converted to an implicit reference. It is not required (and disallowed) to use the `*` operator at the use site:
+Implicit Reference Types are denoted with a `^` instead of `*`. This will make it possible to directly pass an expression without having to use the reference operator `&`. Furthermore, Implicit Reference Types can be implicitly de-referenced.
 
 ```java
-static void inc(var int i, int n) = i += n
+static void inc(int^ i, int n)
+{
+    let newValue = i + 1 // no de-referencing required
+    *i = newValue        // assign the new value to the reference target
+}
 
 int myInt = 0
+int^ myRef = myInt // no explicit '&' required
 
 inc myInt
 println myInt // prints 1
 
-inc(myInt, 10)
+inc(myRef, 10)
 println myInt // prints 11
-
-inc(&myInt) // disallowed
 ```
