@@ -42,7 +42,7 @@ Due to the two `=` symbols, this style is not advised.
 
 ## Method Parameters
 
-Methods can take an arbitrary amount of [**Parameter**s](classes/parameters.md). They are usable in the method implementation and have to be passed at the call site (when calling the method). Method parameters are always declared within parenthesis after the method name. Multiple parameters are separated with a comma `,`.
+Methods can take an arbitrary amount of [**Parameter**s](classes/parameters.md.). They are usable in the method implementation and have to be passed at the call site (when calling the method). Method parameters are always declared within parenthesis after the method name. Multiple parameters are separated with a comma `,`.
 
 ```java
 public void foo() = println "Hello World"           // zero parameters
