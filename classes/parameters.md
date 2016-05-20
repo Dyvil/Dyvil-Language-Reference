@@ -32,7 +32,7 @@ Class Parameters are similar Method Parameters, but declared on classes.
 class IntAndString(int i, String s)
 ```
 
-By annotating a class with parameters, you can easily force the compiler to generate fields and a constructor. The above Dyvil class definition would look like this in Java:
+By annotating a class with parameters, you can force the compiler to generate fields and a constructor. The above Dyvil class definition would look like this in Java:
 
 ```java
 class IntAndString
