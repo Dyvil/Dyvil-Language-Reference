@@ -1,6 +1,6 @@
 # Other Literals
 
-## Boolean
+## Booleans
 
 Boolean Literals are the easiest to understand: There is only `true` and `false`. The integer equivalents for these are `1` (or anything that is not `0`) for `true` and `0` for `false`.
 
@@ -35,21 +35,22 @@ n = "abc" // error - cannot assign java.lang.String to null
 
 ## Nil
 
-A new literal in Dyvil is the `nil` literal. It can be used for anything that has an empty state, such as arrays, `List`s or `Option`s.
+A new literal added by Dyvil is `nil`. It can be used for anything that can be *empty*, such as arrays, `String`s, `List`s or `Option`s.
 
 ```java
 [int] ints = nil            // [] / [int] with length = 0
+String string = nil         // ""
 List[int] intList = nil     // [] / EmptyList
 Option[String] option = nil // None
 ```
 
-Note that the value of these variables is in no case `null`, but rather the corresponding "empty" implementations or containers.
+The value of these variables never `null`, but rather the corresponding "empty" implementation or container.
 
 The type of the `nil` literal cannot be inferred, as its value depends on the context in which it is used.
 
 ## Wildcard
 
-Another special Value Literal is the Wildcard Literal `_`. It can be used in places where you want the default value of a type to be passed. The following table shows which value the Wildcard Literal will represent based on the type:
+Another special Literal Value is the Wildcard Literal `_`. It can be used in places where you want the default value of a type to be passed. The following table shows which value the Wildcard Literal will represent based on the type:
 
 | Type                                   | Value   |
 | -------------------------------------- | ------- |
