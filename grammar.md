@@ -4,14 +4,14 @@ The following pages contain a formal description of the Dyvil grammar. The produ
 
 # Grammar Format
 
-- Rules: Rules are written in the form `name : value` and can be referenced by name.
+- Rules are written in the form `name : value` and can be referenced by name.
 - Literals: Literal Tokens are denoted with `''` or `""`.
   Example: `myRule : myRule '.' myRule`
-- Optionals: Optional Tokens or Expressions are denoted with a postfix `?` or surrounded by square brackets `[ ]`.
+- Optional Tokens or Expressions are denoted with a postfix `?` or surrounded by square brackets `[ ]`.
   Example: `myRule : '1'? myRule`
 - Lists: Repeated token sequences that are valid once or more are denoted with `{}`.
   Example: `octalNum : '0x'? octal { octal }`
-- Variations: Variations are either denoted with `|` or by defining the same rule multiple times.
+- Variations are either denoted with `|` or by defining the same rule multiple times.
 - Exclusions: If a rule or literal should not be matched, it can be excluded with `^`.
   Example: `charLiteral : "'" { any ^ "'" }? "'"`
 
