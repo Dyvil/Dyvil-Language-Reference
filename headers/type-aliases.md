@@ -3,22 +3,22 @@
 Type Aliases allow you to define named aliases for complex types using a simple syntax:
 
 ```scala
-type IntList = List[int]
-type HashListMapping = Map[List[Map[_, long]], _]
+type IntList = List<int>
+type HashListMapping = Map<List<Map<_, long>>, _>
 ```
 
 The newly defined types can be used anywhere in the scope in which the Type Alias is available:
 
 `MyClassA.dyv`:
 ```java
-type IntList = List[int]
+type IntList = List<int>
 
 public header MyClassA
 
 public class MyClassA
 {
     IntList ints = [ 1, 2, 3 ]
-    List[int] list = ints      // valid - same underlying type
+    List<int> list = ints      // valid - same underlying type
 }
 ```
 
@@ -32,4 +32,36 @@ public class MyClassB
 {
     IntList ints = List(1, 10, 100)
 }
+```
+
+## Generic Type Aliases
+
+You can make a generic Type Aliases that takes a few input type parameters to customize the resulting type. This is done using the usual generic syntax:
+
+```swift
+type NestedList<T> = List<List<T>>
+```
+
+When using this Type Alias, all occurrences of the type parameter will be replaced with the argument. This is shown below, where the type argument is `int`:
+
+```swift
+NestedList<int> list = []
+// expands to
+List<List<int>> list = []
+```
+
+Generic Type Aliases can also be overloaded by arity. This example implements a C#-style Function Type style:
+
+```swift
+type Func<R> = () -> R
+type Func<P1, R> = P1 -> R
+type Func<P1, P2, R> = (P1, P2) -> R
+// ...
+
+Func<int> f = () => 1
+// (() -> int) f = ...
+Func<String, int> l = s => s.length
+// (String -> int) l = ...
+Func<String, String, String> c = (s1, s2) => s1 + s2
+// ((String, String) -> String) c = ...
 ```
