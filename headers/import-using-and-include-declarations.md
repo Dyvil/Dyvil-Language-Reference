@@ -22,7 +22,7 @@ import dyvil.collection.range._ // imports all types in the 'dyvil.collection.ra
 
 ## Using Declarations
 
-Using Declarations works almost exactly like Import Declarations, but with one major difference. They import members such as methods or fields, while `import` operates on classes and packages.
+Using Declarations share the same syntax with Import Declarations, but function differently. They import members such as methods or fields, while `import` operates on classes and packages.
 
 As an example, a Using Declaration allows you to import all methods of the utility class `dyvil.string.StringUtils` into the current scope:
 
@@ -46,14 +46,14 @@ Using Declarations are the Dyvil equivalent of `import static` in Java, but also
 
 ## Include Declarations
 
-Using Include Declarations, you can import all Import, Using and Include Declarations, Type Aliases and Operators from a Header File.
+Using Include Declarations, you can import all Header Declarations from a Header File.
 For example, the include declaration
 
 ```java
 include dyvil.Collections
 ```
 
-Will ensure that all Imports and Operators defined in the `dyvil.Collections` header are available in the current class scope. This also works for imported members and types within the included header. An example for this would be
+Will ensure that all Imports and Operators defined in the `dyvil.Collections` header are available in the current scope. This also works for imported members and types within the included header. An example for this would be
 
 ```java
 include dyvil.Arrays
@@ -80,7 +80,7 @@ include HeaderA
 ```
 class MyClass
 {
-    ClassA classA = ... // < available in current scope
-    ClassB classB = ... // <
+    ClassA classA = ... // available in current scope
+    ClassB classB = ... // ditto
 }
 ```

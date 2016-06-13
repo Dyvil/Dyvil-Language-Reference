@@ -12,21 +12,15 @@ label : identifier ':'
 
 variable : { fieldModifiers | annotation }? ( type | 'var' )? identifier typeAscription?
 
-ifStatement : ifThen ( semi? 'else' expression )?
-ifThen : 'if' '(' expression ')' expression
-       | 'if' expressionNoClosure statementList
-       | 'if' expressionNoClosure ':' expression
+ifStatement : 'if' expressionNoClosure ':'? expression
+                   ( semi? 'else' expression )?
 
 matchExpression : expression '.'? 'match' matchBody
-                | 'match' '(' expression ')' matchBody
-                | 'match' expressionNoClosure ':' matchBody
-                | 'match' expressionNoClosure matchCompound
+                | 'match' expressionNoClosure ':'? matchBody
 matchBody : caseExpression | matchCompound
 matchCompound : '{' { caseExpression }? '}'
 
-whileStatement : 'while' '(' expression ')' expression
-               | 'while' expressionNoClosure statementList
-               | 'while' expressionNoClosure ':' expression
+whileStatement : 'while' expressionNoClosure ':'? expression
 
 repeatStatement : 'repeat' expression semi? 'while' expression
 
@@ -39,9 +33,7 @@ forEachStatement : 'for' '(' variable '<-' expression ')' expression
                  | 'for' variable '<-' expressionNoClosure statementList
                  | 'for' variable '<-' expressionNoClosure ':' expression
 
-syncStatement : 'synchronized' '(' expression ')' expression
-              | 'synchronized' expressionNoClosure statementList
-              | 'synchronized' expressionNoClosure ':' expression
+syncStatement : 'synchronized' expressionNoClosure ':'? expression
 
 tryStatement : 'try' expression { catchStatement } finallyStatement?
 catchStatement : 'catch' '(' variable ')' expression
