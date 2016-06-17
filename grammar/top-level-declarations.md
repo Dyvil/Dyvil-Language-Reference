@@ -73,16 +73,18 @@ variance : '+' | '-'
 typeAscription : ':' type
 
 parameters : '(' ')' | '(' parameter { comma parameter }? ')'
-parameter : { parameterModifier | annotation }? (type ellipsis?)? identifier typeAscription?
-            ( '=' expression )?
+parameter : { parameterModifier | annotation }? (type ellipsis? | 'var' | 'let')?
+            identifier (typeAscription ellipsis?)?
+            ( '=' expressionNoClosure )? propertyBody?
 
 classBody : '{' { member semi }? '}'
 member : field | property | method | constructor | initializer
 
-field : { fieldModifier | annotation }? ( type | 'var' ) identifier typeAscription? ( '=' expression )?
+field : { fieldModifier | annotation }? ( type | 'var' ) identifier typeAscription? ( '=' expressionNoClosure propertyBody?)?
 
-property : { fieldModifier | annotation }? ( type | 'var' ) identifier typeAscription? '{' propertyTags '}'
-propertyTags : propertyTag { semi propertyTag }?
+property : { fieldModifier | annotation }? ( type | 'var' ) identifier
+           typeAscription? propertyBody
+propertyBody : '{' propertyTag { semi propertyTag }? }
 propertyTag : propertyGetter | propertySetter | propertyInit
 propertyGetter : { fieldModifier }? 'get' propertyStatement
 propertySetter : { fieldModifier }? 'set' ( '(' identifier ')' )?
