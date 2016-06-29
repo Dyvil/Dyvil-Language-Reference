@@ -64,10 +64,11 @@ classKind : 'class' | 'enum' | 'object' | 'extension'
 extendsClause : 'extends' type
 implementsClause :  'implements' type { comma type }?
 
-annotation : '@' type arguments
+annotation : '@' type arguments?
 
-typeVariables : '[' ']' | '[' typeVariable { comma typeVariable }? ']'
-typeVariable : variance? identifier upperBounds?
+typeVariables : '<' '>' | '<' typeVariable { comma typeVariable }? '>'
+typeVariable : { annotation }? 'type'? variance? identifier bounds?
+bounds : ( 'extends' | '<:' ) type { '&' type }?
 variance : '+' | '-'
 
 typeAscription : ':' type
