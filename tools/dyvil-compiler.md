@@ -38,7 +38,7 @@ Note that there are four types of arguments that can be passed:
 3. `@configfile.txt` - loads the Compiler Configuration file from the path after the `@` symbol (relative to the directory from which the compiler was launched)
 4. `option=value` - sets the value of the option named `option` to the `value`. Possible options are listed below.
 
-Please note that it is currently not possible to pass list options like `libraries=[libs/,...]` as main arguments. However, it is possible to include multiple libraries into compilation by adding multiple options with the same option name:
+Please note that it is currently not possible to pass list options like `libraries=[libs/,...]` as main arguments. However, it is possible to include multiple libraries into compilation by adding more arguments:
 
 ```sh
 dyvilc libraries=libs/asm.jar libraries=libs/guava.jar
@@ -60,6 +60,8 @@ The config file has a format like this
 option = value
 listOption = [ value1, value2, ... ]
 ```
+
+By convention, the file should use the `.dyc` extension (read `Dyvil Config`). Other file extensions like `.txt` are also accepted by the compiler.
 
 ## Available Options
 
