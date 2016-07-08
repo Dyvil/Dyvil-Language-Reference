@@ -18,7 +18,7 @@ Gets its type inferred to be `(int, String)`, which is syntactic sugar for `dyvi
 
 Another specialization of Generic Types are Function Types. They represent syntactic sugar for parameterized `dyvil.function.FunctionX` types, where `X` is the number of parameters. For example, the function type `(String, int) -> boolean` is syntactic sugar for `Function2[String, Int, Boolean]`. The last type argument (in this case `Boolean`) represents the return type of the function type.
 
-As with Tuple Types and some Generic Types, Function Types are also fitted with variance annotations. This is shown in the declaration of `dyvil.function.Function2`:
+As with Tuple Types and some Generic Types, Function Types also use variance annotations. This is shown in the declaration of `dyvil.function.Function2`:
 
 ```scala
 interface Function2[-P1, -P2, +R]
@@ -43,7 +43,7 @@ static List[T] listOne(T element) = [ element ]
 auto list = listOne("a") // list has the type 'List[String]' because 'T' was inferred to 'String'
 ```
 
-##Wildcard Types
+## Wildcard Types
 
 Wildcard Types are a way to allow use-site variance, as opposed to [declaration-site variance](types/generic-types.md#Variance). For example, since the type `List[T]` is invariant on `T`, a `List[String]` cannot be used in place of a `List[Object]`. However, this problem can be avoided using wildcard types:
 
