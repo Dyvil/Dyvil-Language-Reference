@@ -11,29 +11,29 @@ Much like in Java, statements have to be terminated using semicolons `;`, usuall
 ```java
 public class MyClass
 {
-    public int value = 0    // ;
+    public var value: int = 0   // ;
     
-    public static void main([String] args)
+    static func main(args: [String]) -> void
     {
-        int i = 10              // ;
-        println i               // ;
+        var i = 10              // ;
+        print i                 // ;
         
-        auto my = new MyClass   // ;
+        let my = new MyClass    // ;
         
-        println(                // 1
+        print(                  // 1
                 my,             // 2
                 my.             // 3
                     value,
                 "value")        // ;
         
-        println;                // 4
+        print;                  // 4
         
-        println "\(             // 5
+        print "\(               // 5
                     my)         // ;
         
         if (i >= 20)            // 6
         {
-            println "\(i) is greater than 20!" // ;
+            print "\(i) is greater than 20!" // ;
         }
     }
 }
@@ -53,7 +53,7 @@ Semicolons are __not__ inserted if
         - `break` and `continue`.
         - `this` and `super`.
     - the start or a part of a String Interpolation Literal (5).
-- the first token in the next line is
+- the first token of the next line is
     - a period `.`.
     - a comma `,`.
     - a semicolon `;`.
