@@ -8,7 +8,7 @@ Single line comments span a single line, or the last part of it. They are starte
 
 ```java
 // this is a comment
-println "Hello World"  // this is another comment
+print "Hello World"  // this is another comment
 ```
 
 ## Multi-Line Comments
@@ -18,8 +18,8 @@ Multi-line comments span multiple lines. You can indicate a multi-line comment u
 ```java
 /* this is a multi-
    line comment */
-println "This is code"
-println /* You can put comments in between code as well */ "And this as well"
+print "This is code"
+print /* You can put comments in between code as well */ "And this as well"
 ```
 
 ## DyvilDoc Comments
@@ -32,6 +32,6 @@ class Player
     /**
      * Stores the name of the player
      */
-    private String name
+    var name: String
 }
 ```
