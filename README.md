@@ -1,14 +1,20 @@
-The Dyvil Language Reference
-============================
+**Dyvil** is a multi-paradigm, general purpose programming language that is based on Java and the JVM.
+It is a compiled, statically and stronly typed language that supports both object-oriented, functional and imperative
+programming styles. The language features many high-level constructs as well as an extensible and expressive syntax,
+making it highly useful for both rapid and safe prototyping and the creation of domain-specific languages.
 
-Dyvil is an object-oriented general-purpose programming language with functional and imperative elements. It has a C-descendant syntax and bases on Java and the JVM. Dyvil extends the language with new and modern language features.
+In addition to the **Dyvil-to-JVM-Bytecode compiler**, the toolchain consists of an executable **REPL**, a full-fledged
+**standard library** including an extensive collection framework, the **Dyvil Property Format** library and
+specification, and the **GenSrc** source code generation and text template specialization tool. Information on all
+components can be found in the [Language Reference][1].
 
-Some of the language's aims are:
+As a new programming language in active development, the main goals of the Dyvil project are the following:
 
 - to **enhance** Java with modern programming language elements
 - to **avoid** common boilerplate code
 - to **give** programmers full **control** over the syntax and semantics of their code
-- to be fully **compatible** and **inter-operable** with Java and other JVM languages (e.g. Scala, Groovy, etc.)
+- to be fully **compatible** and **inter-operable** with Java and other JVM languages like Scala or Groovy
 
-This documentation describes the syntax and semantics of new and old language elements. It includes both a beginner guide and a more detailed language reference.
-
+Because the syntax and semantics of the language are still highly experimental and subject to change in upcoming
+releases, it is not recommended to use Dyvil in any kind of production environment. Feature or change requests in the
+form of GitHub Issues or Pull Requests are welcome and encouraged.
