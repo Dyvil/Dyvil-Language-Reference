@@ -1,6 +1,6 @@
 # Header Declarations
 
-Headers and Class Files can be optionally attributed with a Header Declaration. This allows you to use Class Files in `include` declarations and makes it possible to give a header custom access modifiers and annotations:
+Headers and Class Files can be optionally attributed with a Header Declaration. This allows you to use Class Files in `using` declarations and makes it possible to give a header custom access modifiers and annotations:
 
 
 `MyClass.dyv`:
@@ -19,13 +19,13 @@ public class MyClass
 `MyOtherClass.dyv`:
 
 ```java
-include MyClass
+using MyClass
 
 public class MyOtherClass
 {
-    public static void main([String] args)
+    static func main(args: [String]) -> void
     {
-        Map[String, String] map = new HashMap[String, String] // no explicit import required
+        let map: Map<String, String> = new HashMap<String, String> // no explicit import required
     }
 }
 ```
