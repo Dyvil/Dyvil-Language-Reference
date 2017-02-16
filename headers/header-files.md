@@ -1,7 +1,7 @@
 # Header Files
 
 **Header Files** are a special file type that allows the collection of Import and Using Declarations, Operators and Type aliases. They are created with the `.dyh` or `.dyvilh` file extension and allow the definition of the above header elements, but not classes.
-To use header files from within other files, one can include them with the `include` keyword. This has the same effect as copying the code from the header into the source file:
+To use header files from within other files, one can include them with the `using` keyword. This has the same effect as copying the code from the header into the source file:
 
 `MyHeader.dyh`:
 
@@ -13,13 +13,13 @@ import java.util.ArrayList
 `MyClass.dyv`:
 
 ```java
-include MyHeader
+using MyHeader
 
 class MyClass
 {
-    public static void main([String] args)
+    static func main(args: [String]) -> void
     {
-        List[String] list = new ArrayList[String] // no explicit import required
+        let list: List<String> = new ArrayList<String> // no explicit import required
     }
 }
 ```
