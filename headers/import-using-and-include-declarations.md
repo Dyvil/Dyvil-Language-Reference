@@ -1,8 +1,8 @@
-# Import, Using and Include Declarations
+# Import and Using Declarations
 
 ## Import Declarations
 
-An import declaration can be used as follows
+An `import` declaration can be placed in a header file or the header of a class file. It uses the following syntax:
 
 ```scala
 import dyvil.collection.mutable.ArrayList
@@ -14,7 +14,7 @@ This makes the type `ArrayList` in the `dyvil.collection.mutable` package availa
 import dyvil.collection.immutable.{ ArraySet, EmptyList }
 ```
 
-This allows you to import both the `ArraySet` and `EmptyList` types without having to re-type the package. Alternatively, it is also possible to import *all* types in a given package, using the `_` keyword:
+This allows you to import both the `ArraySet` and `EmptyList` types without having to re-type the package. Alternatively, it is also possible to import *all* types in a given package, using the special `_` symbol:
 
 ```scala
 import dyvil.collection.range._ // imports all types in the 'dyvil.collection.range' package
