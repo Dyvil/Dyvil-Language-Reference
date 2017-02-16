@@ -18,3 +18,5 @@ As a new programming language in active development, the main goals of the Dyvil
 Because the syntax and semantics of the language are still highly experimental and subject to change in upcoming
 releases, it is not recommended to use Dyvil in any kind of production environment. Feature or change requests in the
 form of GitHub Issues or Pull Requests are welcome and encouraged.
+
+[1]: https://dyvil.gitbooks.io/dyvil-language-reference/content/
