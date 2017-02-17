@@ -7,7 +7,7 @@ class Book
 {
     String name;
     String author;
-    int id;
+    final int id;
     
     public Book(String name, String author, int id)
     {
@@ -55,19 +55,19 @@ Simple enough, though you may also need an `equals`, `hashCode` and `toString` i
 For a class as simple as the `Book` class, this is a lot of boilerplate. Although IDEs might help you with this by generating the boilerplate code for you, maintaining it still costs a lot of time. In Dyvil, the compiler can generate all this code by using the `case` class modifier:
 
 ```java
-case class Book(String name, String author, int id)
+case class Book(var name: String, var author: String, let id: int)
 ```
 
 Additionally, a Case Class generates a static `apply` method that can be used to construct instances:
 
 ```java
-Book book = Book("The Dyvil Language Reference", "Dyvil Team", 0xCAFEBABE)
+let book = Book("The Dyvil Language Reference", "Dyvil Team", 0xCAFEBABE)
 ```
 
 Marking a class a `case` class makes it usable in [Pattern Matching](../expressions/patterns.md).
 
 ```java
 book match {
-    case Book(String name, "Dyvil Team", _) => println name
+    case Book(var name, "Dyvil Team", _) => println name
 }
 ```
