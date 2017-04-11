@@ -1,3 +1,7 @@
+---
+dyvil: v0.31.0
+---
+
 # Custom Operators
 
 Custom Operators can be defined in Header Files or in the header of a class file. Note that it is not possible to define custom operators anywhere else.
@@ -10,7 +14,7 @@ The following syntax is used to define a custom operator:
    * `postfix`
 2. The keyword `operator`
 3. The symbol
-4. An optional secondary symbol for ternary operators - only valid after `infix operator `
+4. An optional secondary symbol for ternary operators - only valid after `infix operator`
 5. An optional second part symbol to define ternary operators
 6. An optional list of additional comma-separated properties within curly braces.
    * `precedence` followed by an integer literal
