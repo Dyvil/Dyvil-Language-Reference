@@ -1,7 +1,10 @@
+---
+dyvil: v0.31.0
+---
+
 # Header Declarations
 
 Headers and Class Files can be optionally attributed with a Header Declaration. This allows you to use Class Files in `using` declarations and makes it possible to give a header custom access modifiers and annotations:
-
 
 `MyClass.dyv`:
 
@@ -29,3 +32,4 @@ public class MyOtherClass
     }
 }
 ```
+
