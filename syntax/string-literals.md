@@ -14,16 +14,16 @@ Single-Quoted String Literals are indicated and terminated with a single quote `
 
 The type of Single-Quoted String Literals is inferred as `java.lang.String`. However, it is possible to use them as `char` literals by explicitly stating that this type is wanted:
 
-```java
+```swift
 'a' as char
-char c = 'C'
+let c: char = 'C'
 ```
 
-This is only possible if the Single-Quoted String consists of exactly one character (Unicode code-point).
+This is only possible if the Single-Quoted String consists of exactly one character \(Unicode code-point\).
 
 ## Double-Quoted String Literals
 
-Double-Quoted String Literals are both started and ended with a double-quote symbol `"`. This means they cannot contain this character, for example for quotes within the text.
+Double-Quoted String Literals being and end with a double-quote symbol `"`. This means they cannot contain this character, for example for quotes within the text.
 
 ```java
 "Hello World"
@@ -57,20 +57,20 @@ class Test
 
 It is possible to insert certain special characters into String Literals via Escape Sequences. They are indicated by a backslash `\` followed by a single symbol. The symbol determines the character that is actually inserted into the String.
 
-```java
-char tab = '\t'
-char cr = '\r'
+```swift
+let tab: char = '\t'
+let cr: char = '\r'
 ```
 
 The following table shows the escape sequences and the symbols that are actually inserted:
 
-| Escape Symbol | Actual Symbol   | Unicode Number |
-| ------------- | --------------- | -------------- |
-| `\n`          | New Line        | U+000A         |
-| `\t`          | Horizontal Tab  | U+0009         |
-| `\r`          | Carriage Return | U+000D         |
-| `\f`          | Form Feed       | U+000C         |
-| `\b`          | Backspace       | U+0008         |
+| Escape Symbol | Actual Symbol | Unicode Number |
+| --- | --- | --- |
+| `\n` | New Line | U+000A |
+| `\t` | Horizontal Tab | U+0009 |
+| `\r` | Carriage Return | U+000D |
+| `\f` | Form Feed | U+000C |
+| `\b` | Backspace | U+0008 |
 
 To be able to use `'` and `"` in single-quoted or double-quoted String Literals respectively, they can be escaped as well. This will ensure that they are treated as part of the literal, not as the terminating symbol.
 
@@ -102,10 +102,10 @@ The value of the `path` variable will now be
 
 By escaping an opening parenthesis symbol `\(`, one can make use of String Interpolation in Double-Quoted String Literals. The next closing parenthesis will then be treated as the continuation of the String.
 
-```java
-int value = 10
-String s = "The value is: \(value)."
-println s // prints 'The value is: 10.'
+```swift
+let value: int = 10
+let s: String = "The value is: \(value)."
+print s // prints 'The value is: 10.'
 ```
 
 Note that this feature is only supported in Double-Quoted String Literals.
@@ -114,18 +114,19 @@ Note that this feature is only supported in Double-Quoted String Literals.
 
 Verbatim Strings are a way to create Strings with many characters that would otherwise need to be escaped. This is especially handy for file paths in certain operating systems:
 
-```java
-String path = @"..\path\to\file"
+```csharp
+let path: String = @"..\path\to\file"
 ```
 
-Or for use as RegExp's, where you sometimes need to treat characters literally:
+Or for use as RegExp's, where you sometimes want to match characters literally:
 
 ```java
-String regex = @"Hello\.World" // "\." means "a literal dot symbol" in RegExp
-Pattern pattern = Pattern.compile(regex)
+let regex: String = @"Hello\.World" // "\." means "a literal dot symbol" in RegExp
+let pattern = Pattern.compile(regex)
 
 pattern.matches("Hello.World") // => true
 pattern.matches("Hello|World") // => false
 ```
 
 In the example, the pattern expects a literal dot `.` rather than any character.
+
