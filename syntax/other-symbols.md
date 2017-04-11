@@ -1,3 +1,7 @@
+---
+dyvil: v0.31.0
+---
+
 # Other Symbols
 
 A few symbol identifiers also have a special meaning and can't be used as such. These include
