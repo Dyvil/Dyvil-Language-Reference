@@ -1,3 +1,7 @@
+---
+dyvil: v0.31.0
+---
+
 # Type Aliases
 
 Type Aliases allow you to define named aliases for complex types using a simple syntax:
@@ -10,6 +14,7 @@ type HashListMapping = Map<List<Map<_, long>>, _>
 The newly defined types can be used anywhere in the scope in which the Type Alias is available:
 
 `MyClassA.dyv`:
+
 ```java
 type IntList = List<int>
 
@@ -17,14 +22,15 @@ public header MyClassA
 
 public class MyClassA
 {
-    IntList ints = [ 1, 2, 3 ]
-    List<int> list = ints      // valid - same underlying type
+    let ints: IntList = [ 1, 2, 3 ]
+    let list: List<int> = ints      // valid - same underlying type
 }
 ```
 
 When defined in headers or classes with Header Declarations, Type Aliases are also available through Include Declarations:
 
 `MyClassB.dyv`
+
 ```java
 include MyClassA
 
@@ -50,7 +56,7 @@ NestedList<int> list = []
 List<List<int>> list = []
 ```
 
-Generic Type Aliases can also be overloaded by arity. This example implements a C#-style Function Type style:
+Generic Type Aliases can also be overloaded by arity. This example implements a C\#-style Function Type style:
 
 ```swift
 type Func<R> = () -> R
@@ -65,3 +71,6 @@ Func<String, int> l = s => s.length
 Func<String, String, String> c = (s1, s2) => s1 + s2
 // ((String, String) -> String) c = ...
 ```
+
+
+
