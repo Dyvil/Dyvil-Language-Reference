@@ -6,16 +6,16 @@ As with comments, Dyvil also mostly inherits the syntax for number literals from
 
 Integer literals are the most basic type of number literals. There are four types for different bases available, all of which are indicated with different prefixes.
 
-| Prefix | Base | Digit Range (inclusive) | Examples |
-| ------ | ---- | -------- |
-| none   | 10   | 0 - 9 | `123`, `1000`, `007` |
-| `0b`   | 2    | 0 - 1 | `0b1001`, `0b0011` |
-| `0o`   | 8    | 0 - 7 | `0o777`, `0o0123` |
-| `0x`   | 16   | 0 - F | `0x123`, `0xABCDEF`, `0xDEADBEEF` |
+| Prefix | Base | Digit Range \(inclusive\) | Examples |
+| :--- | :--- | :--- | :--- |
+| none | 10 | 0 - 9 | `123`, `1000`, `007` |
+| `0b` | 2 | 0 - 1 | `0b1001`, `0b0011` |
+| `0o` | 8 | 0 - 7 | `0o777`, `0o0123` |
+| `0x` | 16 | 0 - F | `0x123`, `0xABCDEF`, `0xDEADBEEF` |
 
-- All sorts can have as many leading zeros (after the prefix) as necessary.
-- Leading minus signs `-` are not part of the tokens. They are always handled specially by the parser.
-- Base-16 'digits' `A` - `F` can also be lowercase `a` - `f`.
+* All sorts can have as many leading zeros \(after the prefix\) as necessary.
+* Leading minus signs `-` are not part of the tokens. They are always treated as a separate token by the parser.
+* Base-16 digits `A` - `F` can also be lowercase `a` - `f`.
 
 Integer Literals can only be in the range $$-2^{32}$$ to $$2^{32}-1$$. Otherwise, the compiler or REPL will cause a syntax error. For a greater range of values, Long Literals have to be used.
 
@@ -34,7 +34,7 @@ Long Literals work much like integer literals. However, they have to be disambig
 
 Long Literals allow a range of values from $$-2^{64}$$ to $$2^{64}-1$$.
 
-Both Integer and Long Literals may have an arbitrary number of underscores `_` in between digits to increase readability.
+Integer and Long Literals may have an arbitrary number of underscores `_` in between digits, to increase readability.
 
 ```java
 1_000_000
@@ -93,3 +93,6 @@ Double Literals are Floating-Point-Literals suffixed with a `d` or `D` character
 2e-3D
 4.5e12d
 ```
+
+
+
