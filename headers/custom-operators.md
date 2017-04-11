@@ -14,7 +14,7 @@ The following syntax is used to define a custom operator:
    * `postfix`
 2. The keyword `operator`
 3. The symbol
-4. An optional secondary symbol for ternary operators - only valid after `infix operator`
+4. An optional secondary symbol for [ternary operators](/headers/ternary-operators.md) - only valid after `infix operator`
 5. An optional second part symbol to define ternary operators
 6. An optional list of additional comma-separated properties within curly braces.
    * `precedence` followed by an integer literal
