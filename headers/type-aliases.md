@@ -51,9 +51,9 @@ type NestedList<T> = List<List<T>>
 When using this Type Alias, all occurrences of the type parameter will be replaced with the argument. This is shown below, where the type argument is `int`:
 
 ```swift
-NestedList<int> list = []
+let list: NestedList<int> = []
 // expands to
-List<List<int>> list = []
+let list: List<List<int>> = []
 ```
 
 Generic Type Aliases can also be overloaded by arity. This example implements a C\#-style Function Type style:
