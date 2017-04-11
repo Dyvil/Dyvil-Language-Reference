@@ -1,6 +1,4 @@
-# Import and Using Declarations
-
-## Import Declarations
+# Import Declarations
 
 An `import` declaration can be placed in a header file or the header of a class file. It uses the following syntax:
 
@@ -14,59 +12,50 @@ This makes the type `ArrayList` in the `dyvil.collection.mutable` package availa
 import dyvil.collection.immutable.{ ArraySet, EmptyList }
 ```
 
-This allows you to import both the `ArraySet` and `EmptyList` types without having to re-type the package. Alternatively, it is also possible to import _all_ types in a given package, using the special `_` symbol:
+This allows you to import both the `ArraySet` and `EmptyList` types without having to re-type the package. To import _all_ types in a given package, you can use the special `_` symbol, called a Wildcard Import this this context:
 
 ```scala
 import dyvil.collection.range._ // imports all types in the 'dyvil.collection.range' package
 ```
 
-## Using Declarations
+Import Declarations can not only be used to import classes. By placing one ore more of the following keywords after `import`, you can opt in for different member kinds.
 
-Using Declarations share the same syntax with Import Declarations, but function differently. They import members such as methods or fields, while `import` operates on classes and packages.
+| Keyword | Member Kind |
+| :--- | :--- |
+| `package` | Packages |
+| `header` | Headers |
+| `type` | Type Aliases and Type Members |
+| `class` | Classes, Interfaces and Traits |
+| `func` | Static Methods |
+| `var` or `const` | Static Fields |
+| `static` | Static Fields or Methods |
+| `implicit` | Implicit Static Methods |
+| `inline` \(implies `header`\) | All header declarations from the header |
 
-As an example, a Using Declaration allows you to import all methods of the utility class `dyvil.string.StringUtils` into the current scope:
+Without any keyword, all member kinds will be imported. The `using` keyword is equivalent to `import static inline` , i.e. it imports static methods and header declarations.
 
-```scala
-using dyvil.string.StringUtils._
-```
+### Examples
 
-This makes it possible to use `infix` methods from the class without having to manually type out the class name:
+```swift
+// Package Imports
+import package dyvil.collection.mutable
+let list: mutable.ArrayList = new mutable.ArrayList()
 
-```java
-// old way:
-import dyvil.string.StringUtils
-String s = StringUtils.toIdentifier("Hello World")
+// Type Imports
+import type dyvil.lang.Lang.Configure
+func f(c: Configure<String>) = c("abc")
 
-// new way:
-using dyvil.string.StringUtils._
-String s = "Hello World".toIdentifier
-```
+// Function Imports
+import func java.lang.String.valueOf
+let s: valueOf(10)
 
-Using Declarations are the Dyvil equivalent of `import static` in Java, but also allow multi-imports using `{ }`, as shown above.
+// Field Imports
+import const java.lang.Integer.MAX_VALUE
+let i = MAX_VALUE
 
-**Example**:
-
-`HeaderA.dyh`:
-
-```
-import com.example.ClassA
-```
-
-`HeaderB.dyh`:
-
-```
-import com.example.ClassB
-include HeaderA
-```
-
-`MyClass.dyh`:
-
-```
-class MyClass
-{
-    ClassA classA = ... // available in current scope
-    ClassB classB = ... // ditto
-}
+// Implicit Imports
+import implicit dyvil.lang.Strings.s2Name
+let n: Name = "abc"
 ```
 
 
