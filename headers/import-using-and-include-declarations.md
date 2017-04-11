@@ -14,7 +14,7 @@ This makes the type `ArrayList` in the `dyvil.collection.mutable` package availa
 import dyvil.collection.immutable.{ ArraySet, EmptyList }
 ```
 
-This allows you to import both the `ArraySet` and `EmptyList` types without having to re-type the package. Alternatively, it is also possible to import *all* types in a given package, using the special `_` symbol:
+This allows you to import both the `ArraySet` and `EmptyList` types without having to re-type the package. Alternatively, it is also possible to import _all_ types in a given package, using the special `_` symbol:
 
 ```scala
 import dyvil.collection.range._ // imports all types in the 'dyvil.collection.range' package
@@ -44,39 +44,23 @@ String s = "Hello World".toIdentifier
 
 Using Declarations are the Dyvil equivalent of `import static` in Java, but also allow multi-imports using `{ }`, as shown above.
 
-## Include Declarations
-
-Using Include Declarations, you can import all Header Declarations from a Header File.
-For example, the include declaration
-
-```java
-include dyvil.Collections
-```
-
-Will ensure that all Imports and Operators defined in the `dyvil.Collections` header are available in the current scope. This also works for imported members and types within the included header. An example for this would be
-
-```java
-include dyvil.Arrays
-```
-
-This adds all array utility classes in the `dyvil.array` package to the current scope.
-
-Include Declarations can also be present within Headers themselves. This allows deeply nested structures of Headers to be included with a single statement.
-
 **Example**:
 
 `HeaderA.dyh`:
+
 ```
 import com.example.ClassA
 ```
 
 `HeaderB.dyh`:
+
 ```
 import com.example.ClassB
 include HeaderA
 ```
 
 `MyClass.dyh`:
+
 ```
 class MyClass
 {
@@ -84,3 +68,6 @@ class MyClass
     ClassB classB = ... // ditto
 }
 ```
+
+
+
