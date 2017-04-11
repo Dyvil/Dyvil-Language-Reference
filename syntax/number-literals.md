@@ -1,3 +1,7 @@
+---
+dyvil: v0.31.0
+---
+
 # Number Literals
 
 As with comments, Dyvil also mostly inherits the syntax for number literals from Java.
@@ -93,6 +97,4 @@ Double Literals are Floating-Point-Literals suffixed with a `d` or `D` character
 2e-3D
 4.5e12d
 ```
-
-
 

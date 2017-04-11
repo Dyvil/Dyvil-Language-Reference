@@ -1,3 +1,7 @@
+---
+dyvil: v0.31.0
+---
+
 # Comments
 
 Dyvil inherits the comment style from Java. There are three types of comments, all of which are completely ignored by the compiler and REPL. DyvilDoc comments are processed by Documentation tools.
@@ -35,8 +39,4 @@ class Player
     var name: String
 }
 ```
-
-
-
-
 
