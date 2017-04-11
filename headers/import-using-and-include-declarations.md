@@ -1,3 +1,7 @@
+---
+dyvil: v0.31.0
+---
+
 # Import Declarations
 
 An `import` declaration can be placed in a header file or the header of a class file. It uses the following syntax:
@@ -60,6 +64,4 @@ let n: Name = "abc"
 // Inline Imports
 import inline dyvil.lang.Lang // this import declaration is implicitly present in every Dyvil file
 ```
-
-
 
