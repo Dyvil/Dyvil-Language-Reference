@@ -13,7 +13,7 @@ The **Precedence** of an infix operator defines the order in which different ope
 is de-sugared to
 
 ```java
-10.+(2.*(3))
+10 + (2 * 3)
 ```
 
 because the `*` operator has a higher precedence than the `+` operator.
@@ -28,5 +28,13 @@ Prefix and postfix operators have an infinite precedence against infix operators
 = 10
 ```
 
-The order in which they are applied depends on the order in which they were placed in the source code. Prefix operators are applied from right to left while postfix operator are applied from left to right.
+The order in which they are applied depends on the order in which they were placed in the source code. `Prefix` operators are applied from right to left while `postfix` operator are applied from left to right. Postfix operators have a higher precedence than prefix operators.
+
+```swift
+- -  10 ! !
+- -((10 !) !)
+-(-((10 !) !))
+```
+
+
 
