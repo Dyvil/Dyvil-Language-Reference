@@ -56,6 +56,9 @@ let i = MAX_VALUE
 // Implicit Imports
 import implicit dyvil.lang.Strings.s2Name
 let n: Name = "abc"
+
+// Inline Imports
+import inline dyvil.lang.Lang // this import declaration is implicitly present in every Dyvil file
 ```
 
 
