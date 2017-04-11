@@ -1,13 +1,13 @@
 # The Dyvil Property Format
 
-The **Dyvil Property Format** is a JSON-like text-based configuration file format mainly designed for the [Dyvil Window Toolkit](https://github.com/Dyvil/Dyvil-Window-Toolkit).
+The **Dyvil Property Format** is a JSON-like text-based configuration file format mainly designed for the [Dyvil Window Toolkit](https://github.com/Dyvil/Dyvil-Window-Toolkit).  
 The format is based on two fundamental concepts: Nodes and Properties. Nodes allow you to change the properties of an existing value, while properties let you assign a value to a key.
 
 # Values
 
 Values provide the atomic building parts of the Dyvil Property Format. There are seven types of values in the format, all of which behave exactly the same as in Dyvil itself.
 
-- Identifiers
+* Identifiers
 
 ```
 name = dyvil
@@ -17,7 +17,7 @@ visible = true
 enabled = false
 ```
 
-- Integers
+* Integers
 
 ```
 int10 = 123
@@ -26,7 +26,7 @@ int2 = 0b1010
 int8 = 0o7712
 ```
 
-- Floats
+* Floats
 
 ```
 float = 0.123
@@ -35,22 +35,22 @@ float = 0.123D
 float = 2e10F
 ```
 
-- Strings
+* Strings
 
 ```
 string = "Hello World"
 string = 'c'
 string = "\n\n"
-``` 
+```
 
-- Lists
+* Lists
 
 ```
 list = [ 1, 2, 3 ]
 list = [ "a", [ "nested, "list" ] ]
 ```
 
-- Maps
+* Maps
 
 ```
 map = { "a" : "A", "b" : "B" }
@@ -70,7 +70,7 @@ gui { // <- node head
 }
 ```
 
-The `window` property is retrieved from the `gui` root property, and the `width` and `height` properties of the `window` property is assigned in the nested block.
+The `window` property is retrieved from the `gui` root property, and the `width` and `height` properties of the `window` property is assigned in the nested block.  
 Putting this example in the Dyvil perspective, it is equivalent to the following code:
 
 ```
@@ -151,3 +151,6 @@ button = Button(text: "Click Me") {
   visible = false
 }
 ```
+
+
+

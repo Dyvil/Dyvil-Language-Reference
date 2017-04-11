@@ -24,9 +24,9 @@ print /* You can put comments in between code as well */ "And this as well"
 
 ## DyvilDoc Comments
 
-As in Java, Dyvil also supports comments for Documentation. They are written in the DyvilDoc format and span multiple lines. They are indicated with a slash and two asterisks `/**` and terminated like normal multi-line comments (`*/`).
+As in Java, Dyvil also supports comments for Documentation. They are written in the DyvilDoc format and span multiple lines. They are indicated with a slash and two asterisks `/**` and terminated like normal multi-line comments \(`*/`\).
 
-```java
+```swift
 class Player
 {
     /**
@@ -35,3 +35,8 @@ class Player
     var name: String
 }
 ```
+
+
+
+
+
