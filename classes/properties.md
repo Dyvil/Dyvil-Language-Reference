@@ -10,7 +10,7 @@ It is common practice to encapsulate fields of a class by making them `private` 
 class Person
 {
     private var _name: String
-    
+
     var name: String // properties are implicitly public
     {
         init: this._name = ""
@@ -20,7 +20,7 @@ class Person
 }
 ```
 
-In this example, the property body consists of three parts, the **`get`ter**, **`set`ter** and **`init`ializer**. All three can use either colon syntax or statement lists:
+In this example, the property body consists of three parts, the `get`**ter**, `set`**ter** and `init`**ializer**. All three can use either colon syntax or statement lists:
 
 ```swift
 var name: String // properties are implicitly public
