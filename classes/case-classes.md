@@ -1,3 +1,7 @@
+---
+dyvil: v0.32.0
+---
+
 # Case Classes
 
 Case Classes are a syntactic sugar that allows you to save a lot of boilerplate code. Consider the following Java class:
@@ -8,7 +12,7 @@ class Book
     String name;
     String author;
     final int id;
-    
+
     public Book(String name, String author, int id)
     {
         this.name = name;
@@ -24,11 +28,11 @@ Simple enough, though you may also need an `equals`, `hashCode` and `toString` i
     {
         return "Book(" + this.name + ", " + this.author + ", " + this.id + ")";
     }
-    
+
     public boolean equals(Object other)
     {
         if (!(obj instanceof Book)) return false;
-        
+
         final Book otherBook = (Book) other;
         if (this.name != otherBook.name || this.name == null || !this.name.equals(otherBook.name)
             return false;
@@ -36,10 +40,10 @@ Simple enough, though you may also need an `equals`, `hashCode` and `toString` i
             return false;
         if (this.id != otherBook.id)
             return false;
-        
+
         return true;
     }
-    
+
     public int hashCode()
     {
         final int prime = 31;
@@ -58,16 +62,29 @@ For a class as simple as the `Book` class, this is a lot of boilerplate. Althoug
 case class Book(var name: String, var author: String, let id: int)
 ```
 
-Additionally, a Case Class generates a static `apply` method that can be used to construct instances:
+In addition to all methods in the Java class above, a Case Class generates a static `apply` method that can be used to construct instances:
 
-```java
+```swift
+// generated in the Book class:
+static func apply(name: String, author: String, id: int) -> Book = new Book(name, author, id)
+
+// usage:
 let book = Book("The Dyvil Language Reference", "Dyvil Team", 0xCAFEBABE)
 ```
 
-Marking a class a `case` class makes it usable in [Pattern Matching](../expressions/patterns.md).
+Case Classes provide extensive support for use in [Pattern Matching](../expressions/patterns.md) by generating two different `unapply` methods:
 
-```java
+```swift
+// generated in the Book class:
+static func unapply(value: any) -> (String, String, int)? = value is Book ? unapply(value as Book) : null
+static func unapply(value: Book) -> (String, String, int) = (value.name, value.author, value.id)
+
+// usage:
 book match {
-    case Book(var name, "Dyvil Team", _) => println name
+    // match a book with any name, the author "Dyvil Team" and any id and store the name
+    case Book(var name, "Dyvil Team", _) => print name
 }
 ```
+
+
+

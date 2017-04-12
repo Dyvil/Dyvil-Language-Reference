@@ -41,7 +41,7 @@
     * [Fields](classes/fields.md)
     * [Methods](classes/methods.md)
     * [Properties](classes/properties.md)
-    * Generic Type Arguments
+    * [Generic Type Arguments](classes/generic-type-arguments.md)
     * [Parameters](classes/parameters.md)
     * [Constructors](classes/constructors.md)
     * [Initializer Blocks](classes/initializer_blocks.md)
