@@ -2,7 +2,7 @@
 dyvil: v0.31.0
 ---
 
-# Advanced Types
+# Special Types
 
 ## Type Variable Types
 
