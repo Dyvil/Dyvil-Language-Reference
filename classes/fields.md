@@ -1,141 +1,61 @@
 # Fields
 
-Fields are a way to store information about objects of a certain class. They are created with the same notation as in Java:
+Fields are a way to store information about objects of a class. They are declarated using the `var` and `let` keywords:
 
-```java
+```swift
 class Person
 {
-    String name
-    int age = 20
-]
+    let id: long = randomID()
+    var name: String
+    var age: int
+}
 ```
 
-You can declare fields with or without an initial value. If no initial value is declared, it will be the default value for the type of the field.
-
-| Type            | Initial Value |
-|-----------------|---------------|
-| `boolean`       | `false`       |
-| `char`          | `0` (Unicode value) |
-| Integer Numeric Types (`byte`, `short`, `int`, `long`) | `0` |
-| Floating Point Numeric Types (`float`, `double`) | `0.0` |
-| Object Types    | `null`        |
+You can declare fields with or without an initial value. If no initial value is declared, it will be the default value for the type of the field. See the table in [Wildcard Literals](/syntax/other-literals.md "Wildcard Literals") for more information.
 
 ## Initialization
 
-When declaring a field with an initial value, that value has to be assigned to the field at some point. This point depends on if the field is `static` or not, and if it is initialized `lazy`ly or not.
+Instance fields, i.e. non-`static` fields are initialized as soon as an object of the class is constructed.
 
-Normal fields, i.e. non-`static` non-`lazy` fields are initialized as soon as an object of the class is constructed.
-
-```java
-public class Test
+```swift
+class Test
 {
-    String s = { println "Init"; "." }
+    var s: String = { print "Init"; "." }
 }
 
 new Test // prints 'Init'
 new Test // prints 'Init'
 ```
 
-Static fields belong to the class itself, not individual members. This means they are initialized only once: when the class gets loaded.
+Static fields belong to the class itself, not individual members. This means they are initialized only once: when the class gets reference for the first time.
 
-```java
-public class Test
+```swift
+class Test
 {
-    static String s = { println "Init"; "." }
+    static var s: String = { print "Init"; "." }
 }
 
 new Test // prints 'Init'
-new Test // does nothing
+new Test // does not print 'Init' again
 ```
 
-Lazy fields are initialized not when an object or class is loaded, but when the field is used for the first time:
+## Final Fields and `let` Declarations
+
+The `final` modifier or `let` declarator makes a field immutable. This means it cannot be re-assigned after it has been set to an initial value. Attempting to re-assign a final field will result in a compilation error.
 
 ```java
-public class Test
+class Test
 {
-    lazy String s = { println "Init"; "." }
+    let i: int = 1
+    final var j: int = 2
 }
 
-Test t = new Test // does nothing
-t.s // prints 'Init'
-t.s // does nothing
-new Test.s // prints 'Init'
+let t = new Test
+t.i = 3 // invalid, cannot reassign final field 'i'
+t.j = 3 // invalid, s.a.
 ```
 
-Static lazy fields behave like their modifiers suggest. They are only initialized once, when they are used.
+All final fields have to be initialized with an initial value, or a compilation error will be issued.
 
-```java
-public class Test
-{
-    static lazy String s = { println "Init"; "." }
-}
 
-Test.s // prints 'Init'
-Test.s // does nothing
-```
 
-## Final Fields
-
-The `final` modifier makes a field immutable. This means it cannot be re-assigned after it has been set to an initial value, otherwise the compiler will cause an error.
-  
-```java
-final String name
-
-public void setName(String newName)
-{
-    this.name = newName // illegal
-}
-```
-
-All final fields have to be initialized either with an initial value or in all constructors individually. Otherwise, the compiler will tell you about the mistake via an error.
-
-## Field Properties
-
-Fields in class contexts may define inline property getters and setters. They are automatically used when accessing or assigning to that field.
-
-```java
-class Foo
-{
-    var i = 0 { get; set }
-}
-```
-
-is equivalent to
-
-```
-class Foo
-{
-    var i = 0 // field
-
-    var i: int // property
-    {
-        get: this.i
-        set: this.i = newValue
-    }
-}
-```
-
-If the `get` or `set` keywords are used within the property body, the compiler generates default accessors as shown above. To allow as much flexibility as possible, this can be overriden with the usual property syntax.
-
-```java
-class Foo
-{
-    var i = 0
-    {
-        get
-        {
-            println "get"
-            return i
-        }
-        set
-        {
-            println "set \(newValue)"
-            i = newValue
-        }
-    }
-}
-
-var foo = new Foo
-println foo.i      // prints 'get', '0'
-foo.i = 2          // prints 'set 2'
-```
