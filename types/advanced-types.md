@@ -1,30 +1,5 @@
 # Advanced Types
 
-## Tuple Types
-
-A specialization of Generic Types are Tuple Types. They represent the parameterized class `TupleX[T1, ..., TX]`, where `X` is the number of elements in the Tuple. For example, a variable
-
-```java
-auto tuple = (1, "a")
-```
-
-Gets its type inferred to be `(int, String)`, which is syntactic sugar for `dyvil.tuple.Tuple2[Int, String]`. Tuple Types are covariant, which means that `(int, String)` is a subtype of `(any, any)`, and an expression of the former type can be used where the latter type is required:
-
-```java
-(any, any) tuple2 = tuple // ok
-```
-
-## Function Types
-
-Another specialization of Generic Types are Function Types. They represent syntactic sugar for parameterized `dyvil.function.FunctionX` types, where `X` is the number of parameters. For example, the function type `(String, int) -> boolean` is syntactic sugar for `Function2[String, Int, Boolean]`. The last type argument (in this case `Boolean`) represents the return type of the function type.
-
-As with Tuple Types and some Generic Types, Function Types also use variance annotations. This is shown in the declaration of `dyvil.function.Function2`:
-
-```scala
-interface Function2[-P1, -P2, +R]
-```
-However, the parameter types are contravariant instead of covariant. This inverts the subtyping relationship, and makes a `Function2[any, any, String]` a subtype of `Function2[String, String, any]`.
-
 ## Type Variable Types
 
 Type Variable Types are simply references to Type Variables. Their subtyping behavior is defined by the variance annotations of the type variable. This means for a type variable:
@@ -61,3 +36,4 @@ List[_ >: String] strings = objects   // List of 'something that is a supertype 
 ```
 
 In this example, `List[Object]` is compatible with `List[_ >: String]` because `Object >: String`, i.e. `Object` is a super type of `String`.
+
