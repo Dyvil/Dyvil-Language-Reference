@@ -1,91 +1,84 @@
+---
+dyvil: v0.31.0
+---
+
 # Reference Types
 
-In Dyvil, you have the option to create objects that represent pointer to fields. You can accomplish this by using reference types, suffixed with a `*` sign:
+In Dyvil, you have the option to create objects that represent pointers to fields. You can accomplish this by using reference types, which are declared using the postfix type operator `*`:
 
-```java
-int myInt = 0
-int* intReference = &myInt
+```swift
+var myInt:    int  = 0
+var myIntRef: int* = &myInt
 
-String string = "abc"
-String* stringReference = *string
+var string:    String  = "abc"
+var stringRef: String* = &string
 ```
 
-As shown, a reference to a field can be created with the prefix `&` operator.
+As shown, a reference to a field can be created with the prefix `&` operator. Once you have the reference, you can use the `*` and `* =` operators to change the value of the underlying field:
 
-Once you have the reference, you can either `get` or `set` it:
+```swift
+print *intRef      // prints 0
+print *stringRef   // prints 'abc'
 
-```java
-println intReference.get      // prints 0
-println stringReference.get   // prints 'abc'
-
-intReference.set 10
-println myInt                 // prints 10
-println intReference.get      // prints 10
+*myIntRef = 10
+print *myInt       // prints 10
+print *myIntRef    // prints 10
 ```
 
 Any changes made to the field will be instantly applied to the pointer object, and vice-versa.
 
-```java
+```swift
 string = "def"
-println stringReference.get   // prints 'def'
-stringReference.set "test"
-println string                // prints 'test'
+print *stringRef   // prints 'def'
+
+*stringRef = "test"
+print *string           // prints 'test'
 ```
 
 ## The `&` Operator
 
-The `&` prefix operator (read 'Reference Operator') allows you to reference a data member. The following data members are allowed as the operand:
+The `&` prefix operator \(read 'Reference Operator'\) allows you to reference a data member. The following data members are allowed as the operand, as long as they are non-`final`:
 
-- Local Variables
-- Instance Fields
-- Static Fields
-- Class Parameters
-- Properties (pairs of getter and setter methods)
+* Local Variables
+* Instance Fields
+* Static Fields
+* Class Parameters
+* Properties \(pairs of getter and setter methods\)
+* Array Elements:
 
-Array elements (array + index) can also be referenced:
+```swift
+let myArray: [int] = [ 1, 2, 3 ]
+let myArrayRef: int* = &myArray[0]
 
-```java
-[int] myArray = [ 1, 2, 3 ]
-int& myArrayReference = &myArray[0]
-
-println myArrayReference.get    // prints '1'
-myArrayReference.set 10
-println myArray         // prints '[10, 2, 3]'
-```
-
-The expression on which the subscript is used does not need to be a direct field access. It is also possible (though not recommended) to use more complex expressions here:
-
-```java
-[int] getArray() = ...
-
-int* myArrayReference = &getArray()[]    // method call
-
-int* myArrayPointer = &(new [int](3))[0] // array constructor
-
-int* myArrayPointer = &{                 // code block
-    [int] ints = [];
-    ints += 1;
-    ints
-}[0]
+print *myArrayRef    // prints '1'
+*myArrayRef = 10
+print myArray        // prints '[10, 2, 3]'
 ```
 
 ## Implicit Reference Types
 
-Implicit Reference Types are denoted with a `^` instead of `*`. This will make it possible to directly pass an expression without having to use the reference operator `&`. Furthermore, Implicit Reference Types can be implicitly de-referenced.
+Implicit Reference Types are denoted with the postfix type operator `^` instead of `*`. This will make it possible to directly pass an expression without having to use the reference operator `&`. Furthermore, Implicit Reference Types can be implicitly de-referenced.
 
-```java
-static void inc(int^ i, int n)
+```swift
+func inc(i: int^, n: int) -> void
 {
     let newValue = i + 1 // no de-referencing required
     *i = newValue        // assign the new value to the reference target
+    
+    i = newValue // this does NOT assign the new value to the original variable
+                 // instead, it tries to store a reference to the 'newValue' variable to i
+                 // this causes a compiler error because newValue is final
 }
 
-int myInt = 0
-int^ myRef = myInt // no explicit '&' required
+var myInt: int = 0
+var myRef: int^ = myInt // no explicit '&' required
 
 inc myInt
-println myInt // prints 1
+print myInt // prints 1
 
 inc(myRef, 10)
-println myInt // prints 11
+print myInt // prints 11
 ```
+
+
+
