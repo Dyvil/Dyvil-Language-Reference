@@ -84,7 +84,7 @@
     * Tuple Patterns
     * Pattern Bounds
     * Exhaustive Patterns
-* Standard Library
+* [Standard Library](standard-library.md)
 * DyvilDoc
   * [Markdown Syntax](dyvildoc/markdown_syntax.md)
   * HTML Integration
