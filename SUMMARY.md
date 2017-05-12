@@ -18,7 +18,7 @@
     * [Package Declaration](headers/package-declaration.md)
     * [Header Files](headers/header-files.md)
     * [Header Declarations](headers/header-declarations.md)
-    * [Import, Using and Include Declarations](headers/import-using-and-include-declarations.md)
+    * [Import Declarations](headers/import-using-and-include-declarations.md)
     * [Type Aliases](headers/type-aliases.md)
   * [Operators](headers/operators.md)
     * [Precedence](headers/precedence.md)

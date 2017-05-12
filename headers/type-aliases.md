@@ -1,5 +1,5 @@
 ---
-dyvil: v0.31.0
+dyvil: v0.32.0
 ---
 
 # Type Aliases
@@ -15,12 +15,12 @@ The newly defined types can be used anywhere in the scope in which the Type Alia
 
 `MyClassA.dyv`:
 
-```java
+```swift
 type IntList = List<int>
 
-public header MyClassA
+header MyClassA
 
-public class MyClassA
+class MyClassA
 {
     let ints: IntList = [ 1, 2, 3 ]
     let list: List<int> = ints      // valid - same underlying type
@@ -31,12 +31,12 @@ When defined in headers or classes with Header Declarations, Type Aliases are al
 
 `MyClassB.dyv`
 
-```java
-include MyClassA
+```swift
+using MyClassA
 
-public class MyClassB
+class MyClassB
 {
-    IntList ints = List(1, 10, 100)
+    let ints: IntList = List(1, 10, 100)
 }
 ```
 
@@ -64,11 +64,11 @@ type Func<P1, R> = P1 -> R
 type Func<P1, P2, R> = (P1, P2) -> R
 // ...
 
-Func<int> f = () => 1
+let f: Func<int> = () => 1
 // (() -> int) f = ...
-Func<String, int> l = s => s.length
+let l: Func<String, int> = s => s.length
 // (String -> int) l = ...
-Func<String, String, String> c = (s1, s2) => s1 + s2
+let c: Func<String, String, String> = (s1, s2) => s1 + s2
 // ((String, String) -> String) c = ...
 ```
 
