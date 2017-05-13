@@ -15,8 +15,7 @@ The following syntax is used to define a custom operator:
 2. The keyword `operator`
 3. The symbol
 4. An optional secondary symbol for [ternary operators](/headers/ternary-operators.md) - only valid after `infix operator`
-5. An optional second part symbol to define ternary operators
-6. An optional list of additional comma-separated properties within curly braces.
+5. An optional list of additional comma-separated properties within curly braces. Allowed properties:
    * `precedence` followed by an integer literal
    * `associativity` followed by one of
      * `none`
@@ -47,5 +46,4 @@ infix operator +- { associativity none,            120 }
 infix operator +- {               none, precedence 120 }
 ```
 
-The order in which the properties are placed within the brackets does not matter.
-
+The order in which the properties are placed within the brackets does not matter. Duplicate properties are not permitted and will cause a diagnostic error.
