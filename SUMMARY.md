@@ -23,7 +23,6 @@
   * [Operators](headers/operators.md)
     * [Precedence](headers/precedence.md)
     * [Associativity](headers/associativity.md)
-    * [Standard Operators](headers/standard-operators.md)
     * [Custom Operators](headers/custom-operators.md)
     * [Ternary Operators](headers/ternary-operators.md)
   * [Types](types.md)
