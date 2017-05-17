@@ -1,3 +1,7 @@
+---
+dyvil: v0.32.0
+---
+
 # Initializer Blocks
 
 **Initializer Blocks** are a way to run code during the initialization of a class or an instance. You can declare one by using the `init` keyword in a class body:
@@ -5,18 +9,18 @@
 ```java
 class Foo
 {
-    final int bar
+    var bar: int
     
     init
     {
-        int i = someComputation()
+        var i: int = someValue
         if (someCondition)
         {
             i *= 2
         }
         this.bar = i
         
-        println "Initialized"
+        print "Initialized"
     }
 }
 
@@ -28,19 +32,19 @@ When creating an instance of the `Foo` class, the initializer block runs as if i
 ```java
 class Bar
 {
-    public new(int i)
+    public new(i: int)
     {
-        println "new(int)"
+        print "new(int)"
     }
     
-    public new(String s)
+    public new(s: String)
     {
-        println "new(String)"
+        print "new(String)"
     }
     
     init
     {
-        println "Initializer"
+        print "Initializer"
     }
 }
 
@@ -57,12 +61,12 @@ class Baz
 {
     static init
     {
-        println "Static Init"
+        print "Static Init"
     }
     
     init
     {
-        println "Init"
+        print "Init"
     }
 }
 
