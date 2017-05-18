@@ -11,7 +11,7 @@ The Type system is way more advanced and extensive than in Java. Dyvil introduce
 3. The null type: `null`
 4. Primitive Types: `boolean`, `byte`, `short`, `char`, `int`, `long`, `float`, `double`
 5. Object Types: `String`, `Date`, `Object`
-6. Generic Types: `List[int]`, `List[Option[Date]]`
+6. Generic Types: `List<int>`, `List<Option<Date>>`
 7. Tuple Types: `(int, String)`
 8. Function Types: `(int, int) -> int`
 9. Type Variable Types - `T`
