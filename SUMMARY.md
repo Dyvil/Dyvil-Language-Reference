@@ -45,7 +45,7 @@
     * [Constructors](classes/constructors.md)
     * [Initializer Blocks](classes/initializer_blocks.md)
   * [Expressions](expressions.md)
-    * Basic Expressions
+    * [Basic Expressions](expressions/basic-expressions.md)
     * Operators
       * Object and Identity Equality
       * Casts and Type Checks
