@@ -66,7 +66,7 @@
     * Match Expressions
     * Case Expressions
     * Lambda Expressions
-  * Statements
+  * [Statements](syntax/statements.md)
     * Statement Blocks
     * If-Else
     * For and For-Each
@@ -84,10 +84,10 @@
     * Pattern Bounds
     * Exhaustive Patterns
 * [Standard Library](standard-library.md)
-* DyvilDoc
+* [DyvilDoc](dyvildoc.md)
   * [Markdown Syntax](dyvildoc/markdown_syntax.md)
-  * HTML Integration
-  * Tags
+  * [HTML Integration](dyvildoc/html-integration.md)
+  * [Tags](dyvildoc/tags.md)
 * [Grammar](grammar.md)
   * [Tokens](grammar/tokens.md)
   * [Top-Level Declarations](grammar/top-level-declarations.md)
