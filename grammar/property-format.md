@@ -1,3 +1,6 @@
+---
+dyvil: v0.34.0
+---
 # Dyvil Property Format
 
 The following page describes the grammar of the Dyvil Property Format. Please consult the [Grammar](grammar.md) page to find out about the format of this grammar definition as well as character classes and tokens.
@@ -5,14 +8,15 @@ The following page describes the grammar of the Dyvil Property Format. Please co
 ## Node Elements
 
 ```sh
-dpfFile : { nodeElement }
+dpfFile : nodeElements
 
 nodeElement : property | node | access
+nodeElements : { nodeElement }
+nodeElementList : '{' '}' | '{' nodeElements '}'
 
-property : identifier '=' value
+property : identifier ('=' | ':') value
 access : identifier '.' nodeElement
-node : identifier nodeBody
-nodeBody : '{' { nodeElement } '}'
+node : identifier nodeElementList
 ```
 
 ## Values
@@ -22,10 +26,11 @@ value : literal | identifier | list | map | builder
 literal : number | stringLiteral | charLiteral | boolean | null
 
 list : '[' ']' | '[' value { ',' value }? ']'
-map : '{' '}' | '{' value ':' value { ',' value ':' value }? '}'
+map : '{' '}' | '{' mapEntry { ',' mapEntry }? '}'
+mapEntry : value ':' value
 
-builder : identifier parameters? nodeBody?
+builder : identifier parameterList? nodeBody?
 
-parameters : '(' ')' | '(' parameter { ',' parameter }? ')'
-parameter : (identifier ':') value
+parameter : (identifier ':')? value
+parameterList : '(' ')' | '(' parameter { ',' parameter }? ')'
 ```
