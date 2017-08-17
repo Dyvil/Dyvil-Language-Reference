@@ -1,37 +1,48 @@
+---
+dyvil: v0.34.0
+---
 # Types
 
 ```sh
-typeList : type { comma type }?
+type : typeNoVoid | voidType
+typeNoVoid : namedType | genericType | nullType | arrayType
+           | lambdaType | tupleType | wildcardType | infixType
+           | prefixType | postfixType
 
-type : namedType | genericType | nullType | arrayType | lambdaType | voidType
-     | tupleType | wildcardType | optionType | implicitOptionType
-     | referenceType | implicitReferenceType
+types : type { comma type }?
+
 namedType : identifierList
-genericType : namedType '[' typeList? ']'
+genericType : namedType '<' types? '>'
+```
 
+## Basic Types
+
+```sh
+nullType : 'null'
 voidType : '(' ')'
-arrayType : '[' mutability? type? ']'
-          | type '[' ']'              # Java-Style Warning
-lambdaType : '=>' type
-           | type '=>' type
-           | '(' ')' '=>' type
-           | '(' type { comma type }? ')' '=>' type
-           | type . lambdaType
+wildcardType : '_'
+```
 
-tupleType : '(' type { comma type }? ')'
-wildcardType : '_' | '_' upperBound | '_' lowerBound
+## Collection Types
 
-optionType            : type '?'
-implicitOptionType    : type '!'
-referenceType         : type '*'
-implicitReferenceType : type '^'
-
-mapType : '[' mutability? type ':' type ']'
-listType : '[' mutability? type '...' ']'
-
+```sh
 mutability : 'var' | 'final'
 
-upperBounds : { upperBound }
-upperBound : '<:' type
-lowerBound : '>:' type
+tupleType : '(' types ')'
+arrayType : '[' mutability? type? ']'
+          | type '[' ']' # Java-Style, causes warning
+mapType   : '[' mutability? type ':' type ']'
+```
+
+## Compound Types
+
+```sh
+lambdaType : '=>' type
+           | typeNoVoid '=>' type
+           | '(' types? ')' '=>' type
+           | type '.' '(' types? ')' '=>' type
+
+infixType : type identifier type
+prefixType : identifier type
+postfixType : type identifier
 ```
