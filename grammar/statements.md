@@ -16,8 +16,9 @@ label : identifier ':'
 variableDeclaration : attributes? ( 'var' | 'let' ) identifier typeAscription?
 variable : variableDeclaration '=' expression
 
-ifStatement : 'if' expressionNoClosure expression
-                   ( semi? 'else' expression )?
+ifStatement : 'if' ifStatementHead expression ( semi? 'else' expression )?
+ifStatementHead : expressionNoClosure
+                | 'let' identifier typeAscription? '=' expressionNoClosure
 
 matchExpression : expression '.'? 'match' matchBody
                 | 'match' expressionNoClosure matchBody
@@ -27,12 +28,10 @@ caseList : '{' '}' '{' caseExpresssion { semi caseExpression }? '}'
 
 whileStatement : 'while' expressionNoClosure expression
 
-repeatStatement : 'repeat' expression semi? 'while' expression
+repeatStatement : 'repeat' expression ( semi? 'while' expression )?
 
-forStatement : 'for' '(' variable? semi expression?
-               semi expression? ')' expression
-             | 'for' variable semi expression?
-               semi expressionNoClosure? statementList
+forStatement : 'for' '(' variable? semi expression? semi expression? ')' expression
+             | 'for' variable semi expression? semi expressionNoClosure? statementList
              
 forEachStatement : 'for' '(' variableDeclaration '<-' expression ')' expression
                  | 'for' variableDeclaration '<-' expressionNoClosure statementList
