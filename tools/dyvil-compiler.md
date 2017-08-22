@@ -1,5 +1,5 @@
 ---
-dyvil: v0.32.0
+dyvil: v0.34.0
 ---
 
 # The Dyvil Compiler
@@ -89,10 +89,10 @@ The following options can be passed as launch arguments or in the configuration 
 
 ### Important Notes about Options
 
-* The file options `log_file`, `source_dir`, `source_dirs`, `output_dir` and `libraries` are relative to the launch directory of the compiler.
-* `include` and `exclude` are both relative to the `source_dir(s)`.
-* All file names are separated with the file separator of the host system \(`/` on Unix / Mac, `\` on Windows\).
-* The main type is separated with `.`, as usual for Java class names.
+- The file options `log_file`, `source_dir`, `source_dirs`, `output_dir` and `libraries` are relative to the launch directory of the compiler.
+- The `include` and `exclude` options are both relative to the source directory roots.
+- All file names are separated with `/`, but the file separator of the host system (e.g. `\` on Windows) is also supported.
+- The main type is separated with `.`, as usual for Dyvil and Java class names.
 
 
 
