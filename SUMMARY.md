@@ -70,7 +70,7 @@
     * [Statement Blocks](syntax/statements/statement-blocks.md)
     * [If-Else](syntax/statements/if-else.md)
     * For and For-Each
-    * While and Do
+    * [While](syntax/statements/while-and-do.md)
     * Control Flow
     * Try and Throw
     * Synchronized Blocks
