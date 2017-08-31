@@ -62,9 +62,7 @@
     * Tuples
     * Arrays
     * Maps
-    * Ranges
     * Match Expressions
-    * Case Expressions
     * Lambda Expressions
   * [Statements](syntax/statements.md)
     * [Statement Blocks](syntax/statements/statement-blocks.md)
