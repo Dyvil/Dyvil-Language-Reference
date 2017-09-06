@@ -80,10 +80,10 @@ Separator lines are marked with three or more dashes at the beginning of a line
 
 To display quotes in DyvilDoc comments, you can add a `>` symbol at the beginning of a line. Quoted text follows syntax and style rules.
 
-    > "Dyvil is great"
-    > - Smart person
+```
+> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+```
 
-> "Dyvil is great"
-> - Smart person
+> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
 
 
