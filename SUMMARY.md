@@ -62,15 +62,13 @@
     * Tuples
     * Arrays
     * Maps
-    * Ranges
     * Match Expressions
-    * Case Expressions
     * Lambda Expressions
   * [Statements](syntax/statements.md)
-    * Statement Blocks
-    * If-Else
+    * [Statement Blocks](syntax/statements/statement-blocks.md)
+    * [If-Else](syntax/statements/if-else.md)
     * For and For-Each
-    * While and Do
+    * [While](syntax/statements/while-and-do.md)
     * Control Flow
     * Try and Throw
     * Synchronized Blocks

@@ -1,3 +1,7 @@
+---
+dyvil: v0.34.0
+---
+
 # Tokens
 
 ## Character Classes
@@ -31,11 +35,12 @@ docComment : '/**' { any ^ '*/' } '*/'
 identifier : { '.' }? identifierSeparator? identifierPart { identifierSeparator identifierPart }?
 identifier : '`' (any ^ '`') '`'
 identifierSeparator : '_' | '$'
-identifierPart : alphaIdentifier | symbolIdentifier
+identifierPart : alphaIdentifier | symbolIdentifier
 alphaIdentifier : alpha { alpha | decimal }?
 symbolIdentifier : symbol { symbol }?
 
 # Special Identifiers
+
 dot : '.'
 wildcard : '_'
 ellipsis : '...'
@@ -66,3 +71,6 @@ stringEnd : ')' { any ^ '"' } '"'           # If String Interpolation Mode is on
 
 verbatimString = '@"' { any ^ '"' } '"'
 ```
+
+
+
