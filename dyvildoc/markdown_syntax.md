@@ -32,7 +32,7 @@ Text can be striked-through using tilde symbols `~` around it.
 
     ~strikethrough text~
 
-<s>strikethrough text</s>
+<strike>strikethrough text</strike>
 
 ## Links
 
