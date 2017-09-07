@@ -30,7 +30,7 @@
     * [Object Types](types/object-types.md)
     * [Generic Types](types/generic-types.md)
     * [Variance](types/variance.md)
-    * [Special Types](types/advanced-types.md)
+    * [Special Types](types/special-types.md)
     * [Type Inference](types/type-inference.md)
     * [Reference Types](types/reference-types.md)
   * [Classes](classes.md)
