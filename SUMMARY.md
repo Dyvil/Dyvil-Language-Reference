@@ -60,7 +60,7 @@
     * Assignments
     * Compound Assignments
     * Tuples
-    * Arrays
+    * [Arrays](expressions/arrays.md)
     * Maps
     * Match Expressions
     * Lambda Expressions
