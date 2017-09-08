@@ -59,7 +59,7 @@
       * Anonymous Classes
     * Assignments
     * Compound Assignments
-    * Tuples
+    * [Tuples](expressions/tuples.md)
     * [Arrays](expressions/arrays.md)
     * Maps
     * Match Expressions
