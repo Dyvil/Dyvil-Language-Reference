@@ -72,7 +72,6 @@
     * Control Flow
     * Try and Throw
     * Synchronized Blocks
-    * Bytecode Expressions
   * [Patterns](expressions/patterns.md)
     * Literal Patterns
     * Type Check Patterns
