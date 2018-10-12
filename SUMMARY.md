@@ -2,8 +2,8 @@
 
 * [Introduction](README.md)
 * [Tools](tools.md)
-  * [The REPL](tools/repl.md)
   * [The Dyvil Compiler](tools/dyvil-compiler.md)
+  * [The REPL](tools/repl.md)
   * [The Dyvil Property Format](tools/dyvil-property-format.md)
 * [Language Reference](language-reference.md)
   * [Lexical Syntax](syntax/lexical-syntax.md)
