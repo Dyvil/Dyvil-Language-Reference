@@ -110,3 +110,37 @@ The following commands are predefined:
 | `complete`, `c` | Expression or Type | Displays available completions for the expression or type | `c List(1, 2, 3).` | 
 
 It is not possible to define or use custom commands.
+
+## Multi-line Input
+
+You usually submit input to the REPL by pressing the enter key. However, there are a few situations in which the enter key will not evaluate the expression, but insert a line break instead:
+
+- Unbalanced Parentheses
+
+  When the parentheses or brackets in your input are not balanced, the REPL will insert line breaks. This will happen until all three types of brackets (`()`, `[]` and `{}`) are balanced:
+  
+  ```java
+  > class Person {⏎
+        var name: String⏎
+        var age: int⏎
+    }⏎
+  class Person ...
+  > [⏎
+    1,⏎
+    2,⏎
+    3,⏎
+    ]⏎
+  let res...
+  ```
+  
+ Within curly brackets `{}`, your code will be automatically indented by one tab symbol per nesting level. Note that parentheses and brackets within String literals are excluded from the above rules and have no impact on the newlines inserted by the REPL.
+  
+- Strings
+
+  Unclosed single-quoted or double-quoted String literals also prevent the REPL from evaluating your expressions. This allows you to enter multi-line Strings without trouble:
+
+  ```swift
+  > "Hello⏎
+    World"⏎
+  let res...
+  ```
