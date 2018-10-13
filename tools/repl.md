@@ -2,18 +2,16 @@
 
 The first tool you can use to get started with Dyvil is it's official REPL (**R**ead-**E**valuate-**P**rint-**L**oop). It allows you to enter any valid Dyvil expression and have it checked and evaluated by the program.
 
-![The REPL](repl-example-1.png)
+![The REPL](repl-screenshot.png)
 
-## Installation and Launching the REPL
+## Installing and Launching the REPL
 
-To launch the REPL, you have to download the `dyvil-[version].jar` from any [Dyvil release](https://github.com/Dyvil/Dyvil/releases), where `[version]` is the version number of that release.
-
-Example: `dyvil-0.31.0.jar`
+To use the REPL, you have to download the `dyvil-X.Y.Z.jar` file from any [Dyvil Release Page](https://github.com/Dyvil/Dyvil/releases), e.g. `dyvil-0.40.0.jar`.
 
 After downloading the file, you can launch it using the `java` console command:
 
 ```sh
-java -jar dyvil-0.31.0.jar
+java -jar dyvil-0.40.0.jar
 ```
 
 This will print text similar to the one shown in the above example. As soon as the `>` sign appears, the REPL has finished doing it's initialization and you may start typing.
