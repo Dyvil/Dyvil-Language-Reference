@@ -1,3 +1,6 @@
+---
+dyvil: v0.40.0
+---
 # The REPL
 
 The first tool you can use to get started with Dyvil is it's official REPL (**R**ead-**E**valuate-**P**rint-**L**oop). It allows you to enter any valid Dyvil expression and have it checked and evaluated by the program.
@@ -16,44 +19,11 @@ java -jar dyvil-0.40.0.jar
 
 This will print text similar to the one shown in the above example. As soon as the `>` sign appears, the REPL has finished doing it's initialization and you may start typing.
 
-## Input
-
-The REPL allows you to enter expressions and submit them by pressing the enter key. However, there are a few situations in which the enter key will not evaluate the expression, but add a newline instead:
-
-- Unbalanced Parenthesis
-
-  In the case that the parenthesis or brackets in your expression are not balanced, the REPL will insert newlines. This will happen until all three types of brackets (`()`, `[]` and `{}`) are balanced:
-  
-  ```java
-  > class Person {        // newline
-        var name: String  // newline
-        var age: int      // newline
-    }
-  > [  // newline
-    1, // newline
-    2, // newline
-    3, // newline
-    ]
-  ```
-  
- Within curly brackets `{}`, your code will be automatically indented by one tab symbol per nesting level.
-  
-- Strings
-
-  Unclosed single-quoted or double-quoted String literals also prevent the REPL from evaluating your expressions. This allows you to enter multi-line Strings without trouble:
-
-  ```swift
-  > "Hello
-    World"
-  ```
-  
-  Note that parenthesis within String literals are excluded from the above rules and have no impact on the newlines inserted by the REPL.
-
 ## Supported Language Elements
 
-The REPL mainly supports any Dyvil [expressions](expressions.md) and [statements](statements.md), which you can learn about in the respective pages of this documentation.
+The REPL can process any Dyvil [expression](expressions.md) and [statement](statements.md), which you can learn about in the respective pages of this documentation.
 
-Furthermore, it also supports these class-level and header constructs:
+Furthermore, it also supports these class- and header-level declarations:
 
 - [Fields](classes/fields.md)
 
@@ -82,33 +52,44 @@ var result: int = 3
       var name: String
       var age: int
   }
+class Person...
 > interface Callable<T> {
       func call() -> T
   }
+interface Callable...
 ```
 
 - [Import Declarations](headers/import-declarations.md)
 
 ```java
 > import java.util.Date
+import ...
 > using dyvil.math.MathUtils._
+...
 > using dyvil.Strings
+...
 ```
 
 - [Operator Definitions](headers/operators.md)
 
 ```swift
-> prefix  operator ~~
-> infix   operator +- { precedence 150, associativity left }
+> prefix operator ~~
+...
+> infix operator +- { precedence 150, associativity left }
+...
 > postfix operator !!
+...
 ```
 
 - [Type Aliases](headers/type-aliases.md)
 
 ```scala
 > type StringList = List<String>
+...
 > type ToIntMap<K> = Map<K, int>
+...
 > type NestedMap<K1, K2, V> = Map<K1, Map<K2, V>>
+...
 ```
 
 ## Commands
