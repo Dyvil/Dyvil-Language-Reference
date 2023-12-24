@@ -1,4 +1,4 @@
-# Summary
+# Table of contents
 
 * [Introduction](README.md)
 * [Tools](tools.md)
@@ -43,46 +43,47 @@
     * [Generic Type Arguments](classes/generic-type-arguments.md)
     * [Parameters](classes/parameters.md)
     * [Constructors](classes/constructors.md)
-    * [Initializer Blocks](classes/initializer_blocks.md)
+    * [Initializer Blocks](classes/initializer\_blocks.md)
   * [Expressions](expressions.md)
     * [Basic Expressions](expressions/basic-expressions.md)
-    * Operators
-      * Object and Identity Equality
-      * Casts and Type Checks
-      * The Class and Type Operators
-    * String Interpolation
-    * Method Calls
-      * Apply and Update
-      * Subscript
-    * Constructors
-      * Initializers
-      * Anonymous Classes
-    * Assignments
-    * Compound Assignments
+    * [Operators](language-reference/expressions/operators/README.md)
+      * [Object and Identity Equality](language-reference/expressions/operators/object-and-identity-equality.md)
+      * [Casts and Type Checks](language-reference/expressions/operators/casts-and-type-checks.md)
+      * [The Class and Type Operators](language-reference/expressions/operators/the-class-and-type-operators.md)
+    * [String Interpolation](language-reference/expressions/string-interpolation.md)
+    * [Method Calls](language-reference/expressions/method-calls/README.md)
+      * [Apply and Update](language-reference/expressions/method-calls/apply-and-update.md)
+      * [Subscript](language-reference/expressions/method-calls/subscript.md)
+    * [Constructors](language-reference/expressions/constructors/README.md)
+      * [Initializers](language-reference/expressions/constructors/initializers.md)
+      * [Anonymous Classes](language-reference/expressions/constructors/anonymous-classes.md)
+    * [Assignments](language-reference/expressions/assignments.md)
+    * [Compound Assignments](language-reference/expressions/compound-assignments.md)
     * [Tuples](expressions/tuples.md)
     * [Arrays](expressions/arrays.md)
-    * Maps
-    * Match Expressions
-    * Lambda Expressions
+    * [Maps](language-reference/expressions/maps.md)
+    * [Match Expressions](language-reference/expressions/match-expressions.md)
+    * [Lambda Expressions](language-reference/expressions/lambda-expressions.md)
   * [Statements](syntax/statements.md)
     * [Statement Blocks](syntax/statements/statement-blocks.md)
     * [If-Else](syntax/statements/if-else.md)
-    * For and For-Each
+    * [For and For-Each](language-reference/statements/for-and-for-each.md)
     * [While](syntax/statements/while-and-do.md)
-    * Control Flow
-    * Try and Throw
-    * Synchronized Blocks
+    * [Control Flow](language-reference/statements/control-flow.md)
+    * [Try and Throw](language-reference/statements/try-and-throw.md)
+    * [Synchronized Blocks](language-reference/statements/synchronized-blocks.md)
   * [Patterns](expressions/patterns.md)
-    * Literal Patterns
-    * Type Check Patterns
-    * Binding Patterns
-    * Case Class Patterns
-    * Tuple Patterns
-    * Pattern Bounds
-    * Exhaustive Patterns
+    * [Literal Patterns](language-reference/patterns/literal-patterns.md)
+    * [Type Check Patterns](language-reference/patterns/type-check-patterns.md)
+    * [Binding Patterns](language-reference/patterns/binding-patterns.md)
+    * [Case Class Patterns](language-reference/patterns/case-class-patterns.md)
+    * [Tuple Patterns](language-reference/patterns/tuple-patterns.md)
+    * [Pattern Bounds](language-reference/patterns/pattern-bounds.md)
+    * [Exhaustive Patterns](language-reference/patterns/exhaustive-patterns.md)
+  * [Extensions](language-reference/extensions.md)
 * [Standard Library](standard-library.md)
 * [DyvilDoc](dyvildoc.md)
-  * [Markdown Syntax](dyvildoc/markdown_syntax.md)
+  * [Markdown Syntax](dyvildoc/markdown\_syntax.md)
   * [HTML Integration](dyvildoc/html-integration.md)
   * [Tags](dyvildoc/tags.md)
 * [Grammar](grammar.md)
@@ -92,4 +93,3 @@
   * [Expressions](grammar/expressions.md)
   * [Statements](grammar/statements.md)
   * [Property Format](grammar/property-format.md)
-
