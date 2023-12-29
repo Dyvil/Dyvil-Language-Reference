@@ -23,6 +23,24 @@ String.empty() // => ""
 "abc".size() // => 3
 ```
 
+### Extension Functions
+
+Extensions are actually just syntactic sugar for extension methods. They can be added in any class, making them useful when combined with regular utility methods.
+
+```swift
+class Arrays {
+    final extension func in<T>(this: T, array: [T]) = array.contains(this)
+}
+```
+
+This is especially useful if you want to use the extension methods as static utilities from Java code. Now the extension class has a name (Arrays) that can easily be used.
+
+```java
+import org.example.Arrays
+
+Arrays.in("a", new String[] { "a", "b", "c" }) // => true
+```
+
 ### Generic Extensions
 
 Extensions may also be generic, which is useful for extending generic types or arrays:
