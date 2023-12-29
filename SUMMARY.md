@@ -25,6 +25,7 @@
     * [Associativity](headers/associativity.md)
     * [Custom Operators](headers/custom-operators.md)
     * [Ternary Operators](headers/ternary-operators.md)
+    * [Circumfix Operators](language-reference/operators/circumfix-operators.md)
     * [Implementation](language-reference/operators/implementation.md)
   * [Types](types.md)
     * [Basic Types](types/basic-types.md)

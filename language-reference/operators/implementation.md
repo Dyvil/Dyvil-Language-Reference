@@ -2,7 +2,7 @@
 
 Operators are implemented with as static methods. They can be `prefix`, `infix`, `postfix`, and `static` methods. Here are some examples:
 
-```
+```swift
 class MyOperators {
     // -i
     prefix func -(rhs: int) -> int = ...
